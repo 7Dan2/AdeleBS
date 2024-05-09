@@ -18,6 +18,32 @@ root
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* -- A -- */
+/* #appLogo
+{
+    display: block;
+    transition: display ease 2000ms;
+
+} */
+/* #auth
+{
+    display: none;
+} */
+.authentication
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 10px;
+}
+.auth
+{
+    display: none;
+}
+
 /* -- C -- */
 .container
 {
@@ -44,7 +70,9 @@ root
     padding: 18px 24px;
     background: rgb(252, 128, 83);
     opacity: 0%;
-    transition: opacity 3000ms
+    max-height: 200px;
+    max-width: 54%;
+    transition: opacity 2000ms
     
 }
 
@@ -59,4 +87,9 @@ root
 .showAppName
 {
     opacity: 100%
+}
+
+.hideLogo
+{
+    display: none;
 }

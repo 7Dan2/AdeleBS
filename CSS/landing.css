@@ -60,6 +60,21 @@ root
     height: auto;
     border: 2px solid red;
 } */
+
+/* -- I -- */
+input
+{
+    height: 2rem;
+    font-size: 1.2rem;
+}
+input:invalid
+{
+    border: 2px dashed red;
+}
+
+input:valid {
+    border: 2px solid green
+  }
 /* -- L -- */
 .landingWelcome
 {
@@ -71,7 +86,7 @@ root
     background: rgb(252, 128, 83);
     opacity: 0%;
     max-height: 200px;
-    max-width: 54%;
+    max-width: 63%;
     transition: opacity 2000ms
     
 }
@@ -88,6 +103,8 @@ root
 {
     opacity: 100%
 }
+
+/* -- V -- */
 
 .hideLogo
 {

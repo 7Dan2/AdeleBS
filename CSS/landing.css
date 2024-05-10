@@ -65,8 +65,9 @@ root
 input
 {
     height: 2rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
+
 input:invalid
 {
     border: 2px dashed red;
@@ -83,10 +84,10 @@ input:valid {
     text-align: center;
     color: whitesmoke;
     padding: 18px 24px;
-    background: rgb(252, 128, 83);
+    background: rgb(252, 126, 72);
     opacity: 0%;
     max-height: 200px;
-    max-width: 63%;
+    max-width: 72%;
     transition: opacity 2000ms
     
 }

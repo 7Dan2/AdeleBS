@@ -21,19 +21,24 @@
             </div>
 
             <div class="authentication" id="auth">
-                
+                <form action="">
                     <label for="loginId">Identifiant</label>
-                    <input type="text" id="loginId" placeholder="#.#########" pattern="[a-z]{1}+\.[a-z]{2, 10}]" maxlength="12" title="#.##########" required>
+                    <input type="text" id="loginId" placeholder="#.###" pattern="[a-z]{1}\.[a-z]{3}$" maxlength="5" title="#.###" required autofocus > 
     
                     <label for="loginPwd">mot de passe</label>
                     <input type="password" id="loginPwd" required >
                 
+                </form>
+                    
             </div>
-
+            <div class="bottomInfos">
+                <p>Version : pre-0.0.9</p>
+            </div>
         </div>
         
 
     </div>
+    <script src="./JS/auth.js"></script>
     <script src="./JS/main.js"></script>
 </body>
 </html>

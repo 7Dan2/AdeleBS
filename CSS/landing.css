@@ -92,6 +92,11 @@ input:valid {
     
 }
 
+#loginPwd
+{
+    display: none;
+}
+
 /* .landingWelcome:hover
 {
     border: 2px solid white;

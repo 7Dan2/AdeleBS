@@ -8,6 +8,8 @@ function showAppName()
 
 function coucou()
 {
+    
+
     setTimeout(showAppName, 2000)
     document.getElementById("auth").classList.add("auth")
     setTimeout(hideLogo, 5000)
@@ -17,7 +19,9 @@ function coucou()
 
 function hideLogo()
 {
-    document.getElementById("appLogo").classList.add("hideLogo")
+    document.getElementById("appLogo").classList.add("hideLogo");
+    // Suppression de tout contenu présent dans l'identifiant
+    document.getElementById("loginId").value = "";
 }
 
 function showAuth()

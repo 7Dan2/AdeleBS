@@ -1,6 +1,6 @@
 // Récupération de l'identifiant et du mot de passe
 let getId = document.getElementById("loginId");
-getId.addEventListener("blur", logMovies)
+getId.addEventListener("blur", checkId)
 
 let getPasswd = document.getElementById("loginPwd").value
 

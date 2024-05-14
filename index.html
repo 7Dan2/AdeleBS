@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" type="text/css" href="./CSS/landing.css">
     <!-- <link rel="stylesheet" type="text/css" href="./CSS/main.css"> -->
-
+    
     <title>Adele-BS</title>
 </head>
 <body onload="coucou()">
@@ -21,24 +21,27 @@
             </div>
 
             <div class="authentication" id="auth">
-                <form action="">
+                <form action="get">
+
                     <label for="loginId">Identifiant</label>
-                    <input type="text" id="loginId" placeholder="#.###" pattern="[a-z]{1}\.[a-z]{3}$" maxlength="5" title="#.###" required autofocus > 
+                    <input type="text" id="loginId" name="loginId" placeholder="#.###" pattern="[a-z]{1}\.[a-z]{3}$" maxlength="5" title="#.###" required autofocus > 
     
-                    <label for="loginPwd">mot de passe</label>
-                    <input type="password" id="loginPwd" required >
+                    <label for="loginPwd" class="loginPwd" >mot de passe</label>
+                    <input type="password" class="loginPwd" id="loginPwd" name="loginPwd" required >
                 
                 </form>
                     
             </div>
-            <div class="bottomInfos">
+            <!-- <div class="bottomInfos">
                 <p>Version : pre-0.0.9</p>
-            </div>
+            </div> -->
         </div>
         
 
     </div>
+    
     <script src="./JS/auth.js"></script>
     <script src="./JS/main.js"></script>
+    
 </body>
 </html>

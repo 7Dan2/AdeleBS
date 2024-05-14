@@ -1,6 +1,6 @@
 // Récupération de l'identifiant et du mot de passe
 let getId = document.getElementById("loginId");
-getId.addEventListener("blur", checkId)
+getId.addEventListener("blur", logMovies)
 
 let getPasswd = document.getElementById("loginPwd").value
 
@@ -32,16 +32,57 @@ function checkId(id)
     
 }
 
+async function logMovies() 
+{
+    const response = await fetch("./JSON/authorized_members.json", {mode: "no-cors"});
+    const movies = await response.json();
+    console.log(movies)
+  }
+
 function searchForMembers(member)
 {
     // faire une recherche dans le fichier JSON "authorized_members", rubrique "auth"
-    var requestUrl = "./JSON/authorized_members";
-    var request = new XMLHttpRequest();
+    // var requestUrl = "./JSON/authorized_members.json";
+    // var request = new XMLHttpRequest();
 
-    request.open('GET', requestUrl);
-    request.responseType = 'json';
-    request.send();
-    
+    // request.open('GET', requestUrl);
+    // request.responseType = 'json';
+    // request.send();
+
     // Renvoyer un callback
-    return true
+    // return true
+
+    
+
+    // voir fetch()
 }
+
+const members = [
+    {
+        "id": 1,
+        "surname" : "rem",
+        "name" : "per",
+        "compagny" : "sid",
+        "auth" : "r.per"
+    },
+    {
+        "id": 2,
+        "surname" : "jea",
+        "name" : "fou",
+        "compagny" : "sid",
+        "auth" : "j.fou"
+    },
+    {
+        "id": 3,
+        "surname" : "jon",
+        "name" : "rav",
+        "compagny" : "spie",
+        "auth" : "j.rav"
+    },
+    {
+        "id": 4,
+        "surname" : "",
+        "name" : "",
+        "compagny" : ""
+    }
+]

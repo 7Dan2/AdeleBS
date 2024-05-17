@@ -48,7 +48,6 @@ h1
     table-layout: fixed;
     width: 100%;
     text-align: center;
-    border: 1px solid red;
 }
 
 
@@ -61,11 +60,19 @@ table
 th, td
 {
     text-align: center;
-    border: 1px solid yellow;
-    padding: 10px;
+    border: 1px solid rgb(255, 255, 126);
+    
+    padding: 9px;
+    word-wrap: break-word;
 }
+
+td
+{
+    background-color: lightgray;
+}
+
 
 thead
 {
-  background-color: rgb(228 240 245);
+  background-color: blueviolet
 }

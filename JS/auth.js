@@ -23,8 +23,8 @@ function checkId(id)
     else
     {
         // On va chercher si l'id est connu dans la base de données
-        searchForMembers(id)
-
+        // searchForMembers(id)
+        
         alert ("Bienvenue" + " " + id + ", entrez votre mot de passe")  
         
         document.getElementById("loginPwd").style.display="block"
@@ -34,7 +34,36 @@ function checkId(id)
 
 async function logMovies() 
 {
-    const response = await fetch("./JSON/authorized_members.json", {mode: "no-cors"});
+    const members = [
+        {
+            "id": 1,
+            "surname" : "rem",
+            "name" : "per",
+            "compagny" : "sid",
+            "auth" : "r.per"
+        },
+        {
+            "id": 2,
+            "surname" : "jea",
+            "name" : "fou",
+            "compagny" : "sid",
+            "auth" : "j.fou"
+        },
+        {
+            "id": 3,
+            "surname" : "jon",
+            "name" : "rav",
+            "compagny" : "spie",
+            "auth" : "j.rav"
+        },
+        {
+            "id": 4,
+            "surname" : "",
+            "name" : "",
+            "compagny" : ""
+        }
+    ]
+    const response = await fetch(members, {mode: "no-cors"});
     const movies = await response.json();
     console.log(movies)
   }
@@ -57,32 +86,3 @@ function searchForMembers(member)
     // voir fetch()
 }
 
-const members = [
-    {
-        "id": 1,
-        "surname" : "rem",
-        "name" : "per",
-        "compagny" : "sid",
-        "auth" : "r.per"
-    },
-    {
-        "id": 2,
-        "surname" : "jea",
-        "name" : "fou",
-        "compagny" : "sid",
-        "auth" : "j.fou"
-    },
-    {
-        "id": 3,
-        "surname" : "jon",
-        "name" : "rav",
-        "compagny" : "spie",
-        "auth" : "j.rav"
-    },
-    {
-        "id": 4,
-        "surname" : "",
-        "name" : "",
-        "compagny" : ""
-    }
-]

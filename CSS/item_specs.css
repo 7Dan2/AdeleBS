@@ -23,6 +23,12 @@ caption
     padding-top: 10px
 }
 
+/* -- H -- */
+h1
+{
+    text-align: center;
+}
+
 /* -- P -- */
 .place
 {

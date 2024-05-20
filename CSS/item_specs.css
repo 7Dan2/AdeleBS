@@ -13,12 +13,37 @@ body
 {
     height: 100%;
     margin: 0;
-    background-color: rgb(147, 87, 14);
+    background-color: rgb(236, 145, 34);
 }
 
 .box
 {
     margin-bottom: 20px;
+}
+
+.buttonArea
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px
+}
+
+button
+{
+    padding: 9px 20px;
+    border: 2px solid;
+    border-radius: 3px;
+    font-size: 1.1rem;
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+
+button:hover
+{
+    background-color: rgb(0, 196, 121);
+    color: white
 }
 
 /* -- C -- */
@@ -28,10 +53,20 @@ caption
     padding-top: 10px
 }
 
+#container
+{
+    visibility: hidden;
+}
 /* -- H -- */
 h1
 {
     text-align: center;
+}
+
+/* -- I -- */
+#info
+{
+    display: none;
 }
 
 /* -- P -- */

@@ -16,7 +16,7 @@ function showAppName()
 function coucou()
 {
     setTimeout(showAppName, 2000)
-    document.getElementById("auth").classList.add("auth")
+    document.getElementById("appButtons").classList.add("choice")
     setTimeout(hideLogo, 5000)
     setTimeout(showAuth, 5200)
     
@@ -43,5 +43,5 @@ function goToSearchItemPage()
 
 function showAuth()
 {
-    document.getElementById("auth").classList.remove("auth")
+    document.getElementById("appButtons").classList.remove("choice")
 }

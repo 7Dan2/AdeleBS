@@ -5,7 +5,7 @@
 
 :root
 {
-    font-size: 1em;
+    font-size: 2vw;
     font-family: Arial, Helvetica, sans-serif;
 }
  /* -- B -- */
@@ -19,6 +19,7 @@ body
 .box
 {
     margin-bottom: 20px;
+    font-size: 4vw;
 }
 
 .buttonArea
@@ -111,3 +112,17 @@ thead
 {
   background-color: blueviolet
 }
+
+@media screen and (max-width: 601px) 
+{
+    .box {
+      font-size: 1.9vw;
+    }
+  }
+  
+  @media screen and (max-width: 450px)
+   {
+    .box {
+      font-size: 1.8vw;
+    }
+  }

@@ -129,3 +129,17 @@ input:valid {
 {
     display: none;
 }
+
+@media screen and (min-width: 601px)
+ {
+    div.example {
+      font-size: 6vw;
+    }
+  }
+  
+  @media screen and (max-width: 600px)
+   {
+    div.example {
+      font-size: 3vw;
+    }
+  }

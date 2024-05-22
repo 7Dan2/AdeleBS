@@ -47,6 +47,16 @@ body
     display: none;
 }
 
+.app_button
+{
+    padding: 9px 18px;
+    margin-top: 5px;
+    border: 1px solid black;
+    border-radius: 6px;
+    background-color: whitesmoke;
+    font-size: 1rem;
+}
+
 /* -- C -- */
 .container
 {
@@ -89,7 +99,7 @@ input:valid {
     padding: 18px 24px;
     background: rgb(252, 126, 72);
     opacity: 0%;
-    max-height: 200px;
+    max-height: auto;
     max-width: 72%;
     transition: opacity 2000ms
     

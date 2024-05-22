@@ -4,26 +4,31 @@
         "surname" : "rem",
         "name" : "per",
         "compagny" : "sid",
-        "auth" : "r.per"
+        "auth" : "r.per",
+        "role":"admin"
+
     },
     {
         "id": 2,
         "surname" : "jea",
         "name" : "fou",
         "compagny" : "sid",
-        "auth" : "j.fou"
+        "auth" : "j.fou",
+        "role":"admin"
     },
     {
         "id": 3,
         "surname" : "jon",
         "name" : "rav",
         "compagny" : "spie",
-        "auth" : "j.rav"
+        "auth" : "j.rav",
+        "role":"tech"
     },
     {
         "id": 4,
         "surname" : "",
         "name" : "",
-        "compagny" : ""
+        "compagny" : "",
+        "role":"tech"
     }
 ]

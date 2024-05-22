@@ -86,3 +86,21 @@ function searchForMembers(member)
     // voir fetch()
 }
 
+function showItem()
+{
+    var request = new XMLHttpRequest();
+    var requestUrl = "./JSON/authorized_members.json";
+    
+    request.open('GET', requestUrl, true);
+    request.responseType = 'text';
+    request.send();
+    request.onreadystatechange = function()
+{
+    if(this.readyState == 4 && this.status == 200)
+    {
+        
+        // Return key:value
+        items = JSON.parse(request.responseText)
+        console.log(items)
+    }
+}}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="../CSS/landing.css">
+    
+    <title>login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="authentication" id="auth">
+            <form action="get">
+
+                <label for="loginId">Identifiant</label>
+                <input type="text" id="loginId" name="loginId" placeholder="#.###" pattern="[a-z]{1}\.[a-z]{3}$" maxlength="5" title="#.###" required autofocus > 
+
+                <label for="loginPwd" class="loginPwd" >mot de passe</label>
+                <input type="password" class="loginPwd" id="loginPwd" name="loginPwd" required >
+            
+            </form>
+                
+        </div>
+    </div>
+    <script src="../JS/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+[{
+    "id":1,
+    "code_item":"R014xxx",
+    "code_famille":"800",
+    "marque":"URA",
+    "modele":"110 000",
+    "annee_mep":"2021",
+    "localisation":
+    {
+        "batiment":"0014",
+        "etage":"0",
+        "piece":"005"
+    },
+    "maintenances":
+    {
+        "date":"",
+        "code_maintenance":"PREST4001",
+        "entreprise":"",
+        "nom_technicien":""
+    }
+},
+{
+    "id":2,
+    "code_item":"R015",
+    "marque":"URA",
+    "modele":"110 000",
+    "annee_mep":"2021",
+    "localisation":
+    {
+        "batiment":"0015",
+        "etage":"0",
+        "piece":"025"
+    },
+    "maintenances":
+    {
+        "date":"",
+        "code_maintenance":"PREST4001",
+        "entreprise":"",
+        "nom_technicien":""
+    }
+
+}]

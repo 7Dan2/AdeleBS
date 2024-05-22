@@ -113,14 +113,14 @@ thead
   background-color: blueviolet
 }
 
-@media screen and (max-width: 601px) 
+@media screen and (min-width: 501px) 
 {
     .box {
       font-size: 2vw;
     }
   }
   
-  @media screen and (max-width: 450px)
+  @media screen and (max-width: 400px)
    {
     .box {
       font-size: 3vw;

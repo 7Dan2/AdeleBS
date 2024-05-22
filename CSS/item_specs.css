@@ -116,13 +116,13 @@ thead
 @media screen and (max-width: 601px) 
 {
     .box {
-      font-size: 1.9vw;
+      font-size: 2vw;
     }
   }
   
   @media screen and (max-width: 450px)
    {
     .box {
-      font-size: 1.8vw;
+      font-size: 3vw;
     }
   }

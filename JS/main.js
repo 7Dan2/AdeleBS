@@ -17,8 +17,8 @@ function coucou()
 {
     setTimeout(showAppName, 2000)
     document.getElementById("appButtons").classList.add("choice")
-    setTimeout(hideLogo, 5000)
-    setTimeout(showAuth, 5200)
+    setTimeout(hideLogo, 4000)
+    setTimeout(showAuth, 4200)
     
 }
 

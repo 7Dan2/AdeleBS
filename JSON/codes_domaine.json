@@ -1,0 +1,15 @@
+{
+    "SSI":
+    {
+        "famille":"800",
+        "BAES":"803",
+        "BAEA":"802",
+        "BAEH":"801",
+        "BAPI":"804",
+        "Centrale incendie type 4":"811",
+        "Déclencheur manuel":"812",
+        "Sirène":"813",
+        "Coup de poing":"814"
+    },
+    "CVC":"100"
+}

@@ -9,12 +9,14 @@ Module responsable de la génération de la fiche article.
 
 ** Fonctionnalitées Attendues :
 - Récupération du code article dans l'URL (autre fonction dédiée)
-- Message de confirmation reprenant le code article, dans le cas d'une erreur de qrcode affiché
+- Message de confirmation reprenant le code article; on fait valider le code
+par l'utilisateur, dans le cas d'une erreur entre le qrcode affiché et la bdd
     - Si validation : 
-        * Interrogation de la base de données
+        * Interrogation de la base de données, création et affichage de la fiche équipement
     - Si erreur :
         * L'utilisateur entre le code item
         * Interrogation de la base de données
+        * Création et affichage de la fiche équipement
 
     - L'interface présente alors :
         - Première ligne = > le Code Item 
@@ -28,9 +30,45 @@ Module responsable de la génération de la fiche article.
         * Généré uniquement si l'utilisateur est loggué
 */
 
+// Récupération du code article dans le "searchItem" de l'URL
+function getQuery()
+{
+    const param = new URLSearchParams(document.location.search);
+    let searchItem = param.get("searchItem");
+    const message = "Confirmez code article :"
+    console.log(searchItem + " " + "size : " + searchItem.size);
+    console.log(`searchItem?:\n${param.has("searchItem")}`);
 
-document.getElementById("item").innerHTML = "BAES Evacuation"
-document.getElementById("code").innerHTML = "R014023803001"
+    if(!searchItem)
+    {
+        alert("aucune recherche valide\n avez-vous modifié l'url ?")
+    }
+
+    if (confirm(message + searchItem) == true)
+    {
+        document.getElementById("code").innerHTML = searchItem
+        document.getElementById("item").innerHTML = "BAES Evacuation"
+    }
+    
+}
+function showItem()
+{
+    var request = new XMLHttpRequest();
+    var requestUrl = "./Bdd.json";
+    
+    request.open('GET', requestUrl, true);
+    request.responseType = 'text';
+    request.send();
+    request.onreadystatechange = function()
+{
+    if(this.readyState == 4 && this.status == 200)
+    {
+        
+        // Return key:value
+        items = JSON.parse(request.responseText)
+        console.log(items)
+    }
+}}
 
 
 

@@ -31,14 +31,14 @@ function hideLogo()
 
 function goToLoginPage()
 {
-    // location.assign("file:///Users/yanis/Documents/HTML:CSS:JS/AdeleBS/HTML/login.html")
-    location.assign("https://7dan2.github.io/AdeleBS/HTML/login.html")
+    location.assign("file:///Users/yanis/Documents/HTML:CSS:JS/AdeleBS/HTML/login.html")
+    // location.assign("https://7dan2.github.io/AdeleBS/HTML/login.html")
 }
 
 function goToSearchItemPage()
 {
-    // location.assign("file:///Users/yanis/Documents/HTML:CSS:JS/AdeleBS/HTML/item_specs.html")
-    location.assign("https://7dan2.github.io/AdeleBS/HTML/item_specs.html")
+    location.assign("file:///Users/yanis/Documents/HTML:CSS:JS/AdeleBS/HTML/item_specs.html?searchItem=")
+    // location.assign("https://7dan2.github.io/AdeleBS/HTML/item_specs.html?searchItem=")
 }
 
 function showAuth()

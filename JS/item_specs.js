@@ -39,22 +39,22 @@ function getQuery()
     console.log(searchItem + " " + "size : " + searchItem.size);
     console.log(`searchItem?:\n${param.has("searchItem")}`);
 
-    if(!searchItem)
-    {
-        alert("aucune recherche valide\n avez-vous modifié l'url ?")
-    }
 
     if (confirm(message + searchItem) == true)
     {
         document.getElementById("code").innerHTML = searchItem
         document.getElementById("item").innerHTML = "BAES Evacuation"
     }
+
+    // Appel de la fonction tagazou pour la séquence de confirmation
+    tagazou(searchItem)
     
 }
 function showItem()
 {
     var request = new XMLHttpRequest();
-    var requestUrl = "./Bdd.json";
+    var requestUrl = "../JSON/Bdd.json";
+    
     
     request.open('GET', requestUrl, true);
     request.responseType = 'text';
@@ -72,9 +72,9 @@ function showItem()
 
 
 
-function tagazou()
+function tagazou(anItemCode)
 {
-    let text = "R014023803001"
+    let text = anItemCode;
     let code = "Le code article est: " + " " + text + " " +"?"
 
     // confirm(code)

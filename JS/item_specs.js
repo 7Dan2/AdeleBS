@@ -5,7 +5,7 @@ Module responsable de la génération de la fiche article.
 - La fiche article est accessible en lecture seule par tout le monde
     sur flashage du QR code
 - Sa modification est reservée au utilisateurs identifiés
-
+- La vue par défaut est la recherche manuelle
 
 ** Fonctionnalitées Attendues :
 - Récupération du code article dans l'URL (autre fonction dédiée)
@@ -30,31 +30,86 @@ par l'utilisateur, dans le cas d'une erreur entre le qrcode affiché et la bdd
         * Généré uniquement si l'utilisateur est loggué
 */
 
-// Récupération du code article dans le "searchItem" de l'URL
+window.addEventListener("load", (event) => {
+    console.log("page chargée")
+    getQuery()
+  });
+
+// Récupération du code article :
+// Cas 1 => dans le "searchItem" de l'URL (par scan du QR code)
+
+
+
 function getQuery()
 {
     const param = new URLSearchParams(document.location.search);
     let searchItem = param.get("searchItem");
-    const message = "Confirmez code article :"
+    const message = "Confirmez code article : \n"
     console.log(searchItem + " " + "size : " + searchItem.size);
     console.log(`searchItem?:\n${param.has("searchItem")}`);
 
-
-    if (confirm(message + searchItem) == true)
+    if(searchItem)
     {
-        document.getElementById("code").innerHTML = searchItem
-        document.getElementById("item").innerHTML = "BAES Evacuation"
-    }
-
-    // Appel de la fonction tagazou pour la séquence de confirmation
-    tagazou(searchItem)
+        if (confirm(message + searchItem) == true)
+        {
+            // Appel de la fonction tagazou pour la séquence de confirmation
+        tagazou(searchItem)
     
+            document.getElementById("code").innerHTML = searchItem
+            document.getElementById("item").innerHTML = "BAES Evacuation"
+        }
+    }
+    else if(`searchItem?:\n${param.has("searchItem")}` == false)
+    {
+        document.getElementById("btn__updt").style.display = "none";
+        alert("Critère de recherche article manquant\nVeuillez entrer un code article valide");
+        document.getElementById("info").style.display = "block"
+        document.getElementById("manualCodeArticleField").value = ""
+    }
 }
+
+// Cas 2 => dans le cas d'une recherche manuelle 
+// Que ce soit en direct depuis l'application ou suite à erreur du QR Code scanné.
+// Ces deux possibilités renvoient au même formulaire
+// La récupération du code doit générer le query suivant sur l'URL : 
+//  ?searchItem avec le code récupéré afin de le réinjecter dans le script de validation 
+const getEntry = document.getElementById("manualCodeArticleField");
+getEntry.addEventListener("blur", getManualEntryCode);
+
+function getManualEntryCode()
+{
+    getEntryValue = document.getElementById("manualCodeArticleField").value;
+    console.log(getEntryValue)
+}
+
+
+function tagazou(anItemCode)
+{
+    // let text = anItemCode;
+    // let code = "Le code article est: " + " " + text + " " +"?"
+
+    // // confirm(code)
+    // if(confirm(code) == true)
+    // {
+        console.log("Code article confirmé");
+        alert("Chargement des données pour :\n" + anItemCode);
+        document.getElementById("container").style.visibility = "visible"
+        document.getElementById("buttonArea").style.display = "none"
+        
+        
+    // }
+    // else
+    // { 
+    //     document.getElementById("btn__updt").style.display = "none";
+    //     document.getElementById("info").style.display = "block";
+    //     console.log("Code article non confirmé else tutut")
+    // }
+}
+
 function showItem()
 {
     var request = new XMLHttpRequest();
     var requestUrl = "../JSON/Bdd.json";
-    
     
     request.open('GET', requestUrl, true);
     request.responseType = 'text';
@@ -69,28 +124,3 @@ function showItem()
         console.log(items)
     }
 }}
-
-
-
-function tagazou(anItemCode)
-{
-    let text = anItemCode;
-    let code = "Le code article est: " + " " + text + " " +"?"
-
-    // confirm(code)
-    if(confirm(code) == true)
-    {
-        console.log("Code article confirmé");
-        alert("Chargement des données");
-        document.getElementById("container").style.visibility = "visible"
-        document.getElementById("buttonArea").style.display = "none"
-        
-        
-    }
-    else
-    { 
-        document.getElementById("btn__updt").style.display = "none";
-        document.getElementById("info").style.display = "block";
-        console.log("Code article non confirmé else tutut")
-    }
-}

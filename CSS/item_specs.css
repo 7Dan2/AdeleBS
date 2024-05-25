@@ -22,29 +22,29 @@ body
     /* font-size: 4vw; */
 }
 
-.buttonArea
+/* .buttonArea
 {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 50px
-}
+} */
 
 button
 {
-    padding: 9px 20px;
+    padding: 3px 12px;
     border: 2px solid;
     border-radius: 3px;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     width: auto;
-    height: auto;
-    margin: auto;
+    height: 2rem;
+    margin: 10px;
 }
 
 button:hover
 {
     background-color: rgb(0, 196, 121);
-    color: white
+    color: white;
 }
 
 /* -- C -- */
@@ -58,6 +58,16 @@ caption
 {
     visibility: hidden;
 }
+
+/* -- F -- */
+form > input
+{
+    width: auto;
+    height: 2rem;
+    margin: 10px;
+    border-radius: 3px;
+    font-size: 1.1rem;
+}
 /* -- H -- */
 h1
 {
@@ -65,11 +75,44 @@ h1
 }
 
 /* -- I -- */
-#info
+.itemSearch
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+}
+
+#itemTitle
 {
     display: none;
 }
 
+#info
+{
+    display: none;
+    width: 25%;
+    margin: auto;
+}
+
+div[class="itemSearchArea"] > *
+{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    border-radius: 6px;
+}
+
+input[name="manualItemSearchField"]
+{
+    padding: 0 10px
+}
+input:valid
+{
+    border: 2px solid green
+}
 /* -- P -- */
 .place
 {

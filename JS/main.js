@@ -37,8 +37,8 @@ function goToLoginPage()
 
 function goToSearchItemPage()
 {
-    location.assign("file:///Users/yanis/Documents/HTML:CSS:JS/AdeleBS/HTML/item_specs.html")
-    // location.assign("https://7dan2.github.io/AdeleBS/HTML/item_specs.html?searchItem=")
+    // location.assign("file:///Users/yanis/Documents/HTML:CSS:JS/AdeleBS/HTML/item_specs.html")
+    location.assign("https://7dan2.github.io/AdeleBS/HTML/item_specs.html")
 }
 
 function showChoice()

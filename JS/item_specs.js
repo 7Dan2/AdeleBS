@@ -32,13 +32,47 @@ par l'utilisateur, dans le cas d'une erreur entre le qrcode affiché et la bdd
 
 window.addEventListener("load", (event) => {
     console.log("page chargée")
-    getQuery()
+    getUrlOnLoad()
   });
 
+// On recherche la présence du query dans l'URL
+let getItemSearchValue = document.getElementById("manualItemSearchField");
+getItemSearchValue.addEventListener("change",appendSearchQuery );
+
+function getUrlOnLoad()
+{
+    let getUrl = new URLSearchParams(window.location.href)
+    
+    // var searchParams = new URLSearchParams(window.location.search);
+    // searchParams.set("itemSearch", getItemSearchValue.value);
+    // window.location.search = searchParams.toString();
+
+    
+    if(getUrl.search = null)
+    {
+        
+        console.log("Pas de critere de recherche");
+        
+       
+        appendSearchQuery()
+       
+    }
+    else
+    {
+        const param = new URLSearchParams(document.location.search);
+        let searchItem = param.get("searchItem");
+        console.log("presence du critere de recherche avec la valeur :" + " " + searchItem )
+        getQuery()
+    }
+}
+
+function appendSearchQuery()
+{
+    let value = document.getElementById("manualItemSearchField").value;
+    location.assign("file:///Users/yanis/Documents/HTML:CSS:JS/AdeleBS/HTML/item_specs.html?searchItem=" + value)
+}
 // Récupération du code article :
 // Cas 1 => dans le "searchItem" de l'URL (par scan du QR code)
-
-
 
 function getQuery()
 {
@@ -68,19 +102,19 @@ function getQuery()
     }
 }
 
-// Cas 2 => dans le cas d'une recherche manuelle 
-// Que ce soit en direct depuis l'application ou suite à erreur du QR Code scanné.
-// Ces deux possibilités renvoient au même formulaire
-// La récupération du code doit générer le query suivant sur l'URL : 
-//  ?searchItem avec le code récupéré afin de le réinjecter dans le script de validation 
-const getEntry = document.getElementById("manualCodeArticleField");
-getEntry.addEventListener("blur", getManualEntryCode);
+// // Cas 2 => dans le cas d'une recherche manuelle 
+// // Que ce soit en direct depuis l'application ou suite à erreur du QR Code scanné.
+// // Ces deux possibilités renvoient au même formulaire
+// // La récupération du code doit générer le query suivant sur l'URL : 
+// //  ?searchItem avec le code récupéré afin de le réinjecter dans le script de validation 
+// const getEntry = document.getElementById("manualCodeArticleField");
+// getEntry.addEventListener("blur", getManualEntryCode);
 
-function getManualEntryCode()
-{
-    getEntryValue = document.getElementById("manualCodeArticleField").value;
-    console.log(getEntryValue)
-}
+// function getManualEntryCode()
+// {
+//     getEntryValue = document.getElementById("manualCodeArticleField").value;
+//     console.log(getEntryValue)
+// }
 
 
 function tagazou(anItemCode)

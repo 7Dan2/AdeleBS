@@ -87,6 +87,7 @@ function getQuery()
     {
         if (confirm(message + searchItem) == true)
         {
+        document.getElementById("manualItemSearchField").value = searchItem;
             // Appel de la fonction tagazou pour la séquence de confirmation
         tagazou(searchItem)
     

@@ -69,7 +69,8 @@ function getUrlOnLoad()
 function appendSearchQuery()
 {
     let value = document.getElementById("manualItemSearchField").value;
-    location.assign("file:///Users/yanis/Documents/HTML:CSS:JS/AdeleBS/HTML/item_specs.html?searchItem=" + value)
+    // location.replace("file:///Users/yanis/Documents/HTML:CSS:JS/AdeleBS/HTML/item_specs.html?searchItem=" + value);
+    location.replace("https://7dan2.github.io/AdeleBS/HTML/item_specs.html?searchItem=" + value)
 }
 // Récupération du code article :
 // Cas 1 => dans le "searchItem" de l'URL (par scan du QR code)
@@ -79,7 +80,7 @@ function getQuery()
     const param = new URLSearchParams(document.location.search);
     let searchItem = param.get("searchItem");
     const message = "Confirmez code article : \n"
-    console.log(searchItem + " " + "size : " + searchItem.size);
+    // console.log(searchItem + " " + "size : " + searchItem.size);
     console.log(`searchItem?:\n${param.has("searchItem")}`);
 
     if(searchItem)
@@ -89,8 +90,7 @@ function getQuery()
             // Appel de la fonction tagazou pour la séquence de confirmation
         tagazou(searchItem)
     
-            document.getElementById("code").innerHTML = searchItem
-            document.getElementById("item").innerHTML = "BAES Evacuation"
+            
         }
     }
     else if(`searchItem?:\n${param.has("searchItem")}` == false)
@@ -127,8 +127,11 @@ function tagazou(anItemCode)
     // {
         console.log("Code article confirmé");
         alert("Chargement des données pour :\n" + anItemCode);
-        document.getElementById("container").style.visibility = "visible"
-        document.getElementById("buttonArea").style.display = "none"
+        document.getElementById("container").style.visibility = "visible";
+        document.getElementById("itemTitle").style.display="block";
+        document.getElementById("code").innerHTML = anItemCode;
+        document.getElementById("item").innerHTML = "BAES Evacuation"
+        // document.getElementById("buttonArea").style.display = "none"
         
         
     // }
@@ -156,5 +159,7 @@ function showItem()
         // Return key:value
         items = JSON.parse(request.responseText)
         console.log(items)
+        dataLength = items.id.length;
+
     }
 }}

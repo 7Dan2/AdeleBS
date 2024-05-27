@@ -63,9 +63,10 @@ async function logMovies()
             "compagny" : ""
         }
     ]
-    const response = await fetch(members, {mode: "no-cors"});
+    const response = await fetch("../JSON/Bdd.json", {mode: "no-cors"});
     const movies = await response.json();
-    console.log(movies)
+    let movie = JSON.parse(movies)
+    console.log(movie)
   }
 
 function searchForMembers(member)

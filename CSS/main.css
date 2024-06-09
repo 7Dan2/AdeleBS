@@ -44,6 +44,11 @@ html, body
 /* -- B -- */
 
 /* -- C -- */
+.captions
+{
+    border: 1px double red;
+}
+
 .container
 {
     display: grid;

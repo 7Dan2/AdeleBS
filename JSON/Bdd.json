@@ -1,19 +1,23 @@
-[{
+[
+    {
     "id":1,
     "code_item":"R014023803001",
+    "libelle":"BAES Evacuation 1",
     "code_famille":"800",
     "marque":"URA",
     "modele":"110 000",
+    "num_serie":"12335",
     "annee_mep":"2021",
     "localisation":
     {
+        "site":"CMP",
         "batiment":"0014",
         "etage":"0",
         "piece":"005"
     },
     "maintenances":
     {
-        "date":"",
+        "date":"05/03/2023",
         "code_maintenance":"PREST4001",
         "entreprise":"",
         "nom_technicien":""
@@ -22,22 +26,124 @@
 {
     "id":2,
     "code_item":"R015023803002",
+    "libelle":"BAES Evacuation",
     "code_famille":"800",
     "marque":"URA",
     "modele":"110 000",
+    "num_serie":"Z887Y3",
     "annee_mep":"2021",
     "localisation":
     {
+        "site":"CMP",
         "batiment":"0015",
         "etage":"0",
         "piece":"025"
     },
     "maintenances":
     {
-        "date":"",
+        "date":"12/12/2023",
         "code_maintenance":"PREST4001",
         "entreprise":"",
         "nom_technicien":""
     }
 
-}]
+},
+{
+    "id":3,
+    "code_item":"J001023803002",
+    "libelle":"BAES Ambiance",
+    "code_famille":"800",
+    "marque":"URA",
+    "modele":"110 000",
+    "num_serie":"L9H211",
+    "annee_mep":"2021",
+    "localisation":
+    {
+        "site":"CIRFA",
+        "batiment":"0001",
+        "etage":"0",
+        "piece":"001"
+    },
+    "maintenances":
+    [
+        {
+            "date":"14/08/2023",
+            "code_maintenance":"PREST4001",
+            "entreprise":"SPIE",
+            "nom_technicien":"ABD"
+        },
+        {
+            "date":"14/08/2023",
+            "code_maintenance":"PREST4002",
+            "entreprise":"SPIE",
+            "nom_technicien":"ABD"
+        }
+    ]
+
+},
+{
+    "id":4,
+    "code_item":"R155123804002",
+    "libelle":"BAES + BAEH",
+    "code_famille":"800",
+    "marque":"URA",
+    "modele":"118 248",
+    "num_serie":"L9H211",
+    "annee_mep":"2021",
+    "localisation":
+    {
+        "site":"CMP",
+        "batiment":"0155",
+        "etage":"1",
+        "piece":"023"
+    },
+    "maintenances":
+    [
+        {
+            "date":"09/11/2022",
+            "code_maintenance":"PREST4003",
+            "entreprise":"INEO",
+            "nom_technicien":"PLA"
+        },
+        {
+            "date":"09/11/2023",
+            "code_maintenance":"PREST4003",
+            "entreprise":"SID",
+            "nom_technicien":"FCR"
+        }
+    ]
+},
+{
+    "id":5,
+    "code_item":"R155225804003",
+    "libelle":"BAES + BAEH",
+    "code_famille":"800",
+    "marque":"URA",
+    "modele":"118 248",
+    "num_serie":"L9H211",
+    "annee_mep":"2021",
+    "localisation":
+    {
+        "site":"CMP",
+        "batiment":"0155",
+        "etage":"2",
+        "piece":"025"
+    },
+    "maintenances":
+    [
+        {
+            "date":"09/11/2022",
+            "code_maintenance":"PREST4003",
+            "entreprise":"INEO",
+            "nom_technicien":"PLA"
+        },
+        {
+            "date":"09/11/2023",
+            "code_maintenance":"PREST4003",
+            "entreprise":"SID",
+            "nom_technicien":"FCR"
+        }
+    ]
+}
+
+]

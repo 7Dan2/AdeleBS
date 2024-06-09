@@ -34,74 +34,46 @@ function checkId(id)
 
 async function logMovies() 
 {
-    const members = [
-        {
-            "id": 1,
-            "surname" : "rem",
-            "name" : "per",
-            "compagny" : "sid",
-            "auth" : "r.per"
-        },
-        {
-            "id": 2,
-            "surname" : "jea",
-            "name" : "fou",
-            "compagny" : "sid",
-            "auth" : "j.fou"
-        },
-        {
-            "id": 3,
-            "surname" : "jon",
-            "name" : "rav",
-            "compagny" : "spie",
-            "auth" : "j.rav"
-        },
-        {
-            "id": 4,
-            "surname" : "",
-            "name" : "",
-            "compagny" : ""
-        }
-    ]
-    const response = await fetch("../JSON/Bdd.json", {mode: "no-cors"});
-    const movies = await response.json();
-    let movie = JSON.parse(movies)
-    console.log(movie)
-  }
+    // const response = await fetch("../JSON/test.json", {mode: "no-cors"});
+    // const movies = await response.json();
+    // // let movie = JSON.parse(movies)
+    // console.log(movies)
 
-function searchForMembers(member)
-{
-    // faire une recherche dans le fichier JSON "authorized_members", rubrique "auth"
-    // var requestUrl = "./JSON/authorized_members.json";
-    // var request = new XMLHttpRequest();
+    // Ca fonctionne !
+    await fetch('../JSON/authorized_members.json', {
+    method: 'GET',
+    headers: {
+        'Accept': 'application/json',
+        // 'mode': 'no-cors',
+        'Access-Control-Allow-Origin': "*"
+    },
+})
+   .then(response => response.json())
 
-    // request.open('GET', requestUrl);
-    // request.responseType = 'json';
-    // request.send();
+   .then((response) => {
+    let headers = `
+    <tr>
+      <th>Id</th>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Entreprise</th>
+      <th>Rôle</th>
+    </tr>`;
+    document.querySelector("thead").innerHTML = headers;
 
-    // Renvoyer un callback
-    // return true
-
-    
-
-    // voir fetch()
-}
-
-function showItem()
-{
-    var request = new XMLHttpRequest();
-    var requestUrl = "./JSON/authorized_members.json";
-    
-    request.open('GET', requestUrl, true);
-    request.responseType = 'text';
-    request.send();
-    request.onreadystatechange = function()
-{
-    if(this.readyState == 4 && this.status == 200)
-    {
-        
-        // Return key:value
-        items = JSON.parse(request.responseText)
-        console.log(items)
-    }
-}}
+    let rows = "";
+          response.forEach((facility) => {
+            rows += `
+              <tr>
+                <td>${facility.id}</td>
+                <td>${facility.surname} </td>
+                <td>${facility.name}</td>
+                <td>${facility.compagny}</td>
+                <td>${facility.role}</td>
+              </tr>
+            `;
+          });
+          document.querySelector("tbody").innerHTML = rows;
+        });
+   }
+// Fin du fichier

@@ -3,7 +3,7 @@ Module responsable de la génération de la fiche article.
 
 ** Philosophie :
 - La fiche article est accessible en lecture seule par tout le monde
-    sur flashage du QR code
+    sur flashage du QR code ou par entrée d'un code connu.
 - Sa modification est reservée au utilisateurs identifiés
 - La vue par défaut est la recherche manuelle
 
@@ -29,6 +29,8 @@ par l'utilisateur, dans le cas d'une erreur entre le qrcode affiché et la bdd
     - Un bouton permettant de modifier la fiche
         * Généré uniquement si l'utilisateur est loggué
 */
+
+
 
 window.addEventListener("load", (event) => {
     console.log("page chargée")
@@ -62,15 +64,18 @@ function getUrlOnLoad()
         const param = new URLSearchParams(document.location.search);
         let searchItem = param.get("searchItem");
         console.log("presence du critere de recherche avec la valeur :" + " " + searchItem )
+       
         getQuery()
     }
 }
 
-function appendSearchQuery()
+function appendSearchQuery(aValue)
 {
-    let value = document.getElementById("manualItemSearchField").value;
+    aValue = getItemSearchValue.value;
+
     // location.replace("file:///Users/yanis/Documents/HTML:CSS:JS/AdeleBS/HTML/item_specs.html?searchItem=" + value);
-    location.replace("https://7dan2.github.io/AdeleBS/HTML/item_specs.html?searchItem=" + value)
+    // location.replace("https://7dan2.github.io/AdeleBS/HTML/item_specs.html?searchItem=" + value)
+    location.replace("http://localhost:9000/HTML/item_specs.html?searchItem=" + aValue)
 }
 // Récupération du code article :
 // Cas 1 => dans le "searchItem" de l'URL (par scan du QR code)
@@ -82,16 +87,17 @@ function getQuery()
     const message = "Confirmez code article : \n"
     // console.log(searchItem + " " + "size : " + searchItem.size);
     console.log(`searchItem?:\n${param.has("searchItem")}`);
+    
 
     if(searchItem)
     {
         if (confirm(message + searchItem) == true)
         {
-        document.getElementById("manualItemSearchField").value = searchItem;
-            // Appel de la fonction tagazou pour la séquence de confirmation
-        tagazou(searchItem)
-    
-            
+            sessionStorage.setItem("code_item", searchItem )
+        // document.getElementById("manualItemSearchField").value = searchItem;
+
+        // Appel de la fonction tagazou pour la séquence de confirmation
+        showItem(searchItem)
         }
     }
     else if(`searchItem?:\n${param.has("searchItem")}` == false)
@@ -130,8 +136,8 @@ function tagazou(anItemCode)
         alert("Chargement des données pour :\n" + anItemCode);
         document.getElementById("container").style.visibility = "visible";
         document.getElementById("itemTitle").style.display="block";
-        document.getElementById("code").innerHTML = anItemCode;
-        document.getElementById("item").innerHTML = "BAES Evacuation"
+        // document.getElementById("code").innerHTML = anItemCode;
+        // document.getElementById("item").innerHTML = ""
         // document.getElementById("buttonArea").style.display = "none"
         
         
@@ -144,23 +150,110 @@ function tagazou(anItemCode)
     // }
 }
 
-function showItem()
-{
-    var request = new XMLHttpRequest();
-    var requestUrl = "../JSON/Bdd.json";
-    
-    request.open('GET', requestUrl, true);
-    request.responseType = 'text';
-    request.send();
-    request.onreadystatechange = function()
-{
-    if(this.readyState == 4 && this.status == 200)
-    {
-        
-        // Return key:value
-        items = JSON.parse(request.responseText)
-        console.log(items)
-        dataLength = items.id.length;
 
-    }
-}}
+// Fonctionne avec serveur Python !
+function showItem(aValue)
+{
+    document.getElementById("container").style.visibility = "visible";
+        document.getElementById("itemTitle").style.display="block";
+
+    aValue = sessionStorage.getItem("code_item");
+    console.log("valeur de aValue dans showItem: " + aValue)
+    
+    fetch('../JSON/Bdd.json', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            // 'mode': 'no-cors',
+            'Access-Control-Allow-Origin': "*"
+        },
+    })
+       .then(response => response.json())
+       .then((response) => {
+        
+           console.table(response)
+
+        let places_header = `
+        <tr>
+          <th>Bâtiment</th>
+          <th>Niveau</th>
+          <th>Pièce</th>
+        </tr>`;
+
+        let specs_header =`
+        <tr>
+          <th>Marque</th>
+          <th>Modèle</th>
+          <th>Numéro de série</th>
+          <th>Date d'installation</th>
+        </tr>`;
+
+        let maints_header =`
+        <tr>
+          <th>Date</th>
+          <th>Code</th>
+          <th>Entreprise</th>
+          <th>Nom</th>
+        </tr>
+        `
+
+        document.querySelector(".places-header").innerHTML = places_header;
+        document.querySelector(".specs-header").innerHTML = specs_header;
+        document.querySelector(".maints-header").innerHTML = maints_header;
+
+        // Localisations
+        let place_rows = "";
+        let specs_rows = "";
+        let maints_rows = "";
+        
+        response.forEach((facility) => {
+
+            if(facility.code_item === aValue)
+            {
+                document.getElementById("code").innerHTML = facility.code_item;
+                document.getElementById("item").innerHTML = facility.libelle;
+               
+            // Remplissage de lignes de données
+            place_rows += `
+                <tr>
+                    <td>${facility.localisation.batiment}</td>
+                    <td>${facility.localisation.etage} </td>
+                    <td>${facility.localisation.piece}</td>
+                </tr>
+                `;
+                // document.querySelector(".place-body").innerHTML = place_rows;
+
+            specs_rows += `
+                <tr>
+                    <td>${facility.marque} </td>
+                    <td>${facility.modele}</td>
+                    <td>${facility.num_serie}</td>
+                    <td>${facility.annee_mep}</td>
+                </tr>
+                `;
+
+                for(let i in facility.maintenances)
+                {
+                    maints_rows += `
+                    <tr>
+                        <td>${facility.maintenances[i].date} </td>
+                        <td>${facility.maintenances[i].code_maintenance}</td>
+                        <td>${facility.maintenances[i].entreprise}</td>
+                        <td>${facility.maintenances[i].nom_technicien}</td>
+                    </tr>
+                    `;
+                }
+            }
+                
+        }
+                
+            );
+              document.querySelector(".place-body").innerHTML = place_rows;
+              document.querySelector(".specs-body").innerHTML = specs_rows;
+              document.querySelector(".maints-body").innerHTML = maints_rows;
+  
+            });
+
+        }
+     
+    // Fin du fichier 

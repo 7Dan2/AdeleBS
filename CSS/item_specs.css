@@ -13,7 +13,7 @@ body
 {
     height: 100%;
     margin: 0;
-    background-color: rgb(243, 234, 243);
+    background-color: rgb(133, 133, 133);
 }
 
 .box
@@ -37,7 +37,8 @@ button
     border-radius: 3px;
     font-size: 0.9rem;
     width: auto;
-    height: 2rem;
+    /* height: 2rem; */
+    height: 44px;
     margin: 10px;
 }
 
@@ -65,9 +66,11 @@ form > input
     width: auto;
     height: 2rem;
     margin: 10px;
-    border-radius: 3px;
+    border-radius: 6px;
     font-size: 1.1rem;
 }
+
+
 /* -- H -- */
 h1
 {
@@ -96,8 +99,8 @@ h1
 
 div[class="itemSearchArea"] > *
 {
-    display: flex;
-    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
     align-items: center;
     justify-content: center;
     padding: 20px;
@@ -105,14 +108,62 @@ div[class="itemSearchArea"] > *
     border-radius: 6px;
 }
 
+div[class="manualSearchResults"]
+{
+    background: whitesmoke;
+    width: auto;
+    margin-top: 10px;
+    border-radius: 6px;
+    font-size: 1rem;
+    border: 1px solid red;
+    border-radius: 6px;
+}
+
+div[class="searchFilters"]
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    flex-wrap: wrap;
+    border-radius: 6px; 
+}
+
+div[class="searchFilters"] > select
+{
+    width: auto;
+    height: 2rem;
+    margin-top: 6px;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+li
+{
+    padding: 3px;
+    list-style: none;
+}
+
+li:hover
+{
+    background: orange;
+    display: block;
+}
+
 input[name="manualItemSearchField"]
 {
-    padding: 0 10px
+    padding: 0 10px;
+    height: 44px
 }
+
 input:valid
 {
     border: 2px solid green
 }
+
+/* -- L -- */
+
 /* -- P -- */
 .place
 {
@@ -139,21 +190,22 @@ table
 th, td
 {
     text-align: center;
-    border: 1px solid rgb(255, 255, 126);
-    
+    border: 1px solid rgb(245, 245, 126);
+    background-color: rgb(175, 56, 56);
     padding: 9px;
     word-wrap: break-word;
 }
 
 td
 {
-    background-color: lightgray;
+    background-color: rgb(231, 199, 199);
 }
 
 
 thead
 {
-  background-color: blueviolet
+  background-color: rgb(126, 45, 216)
+  
 }
 
 /* @media screen and (max-width: 600px) 

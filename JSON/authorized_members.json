@@ -26,9 +26,10 @@
     },
     {
         "id": 4,
-        "surname" : "",
-        "name" : "",
-        "compagny" : "",
+        "surname" : "eti",
+        "name" : "gre",
+        "compagny" : "SPIE",
+        "auth": "e-gre",
         "role":"tech"
     }
 ]

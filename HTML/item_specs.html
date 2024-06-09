@@ -19,8 +19,43 @@
             <form action="">
                 <!-- <label for="manualCodeArticleField">Entrez un code article</label> -->
                 <input type="search" id="manualItemSearchField" name="manualItemSearchField" pattern="[A-Z]{1}[0-9]{12}" maxlength="13" placeholder=""  required autofocus>
+                <button type="button">Recherche par filtres</button>
+                <div class="searchFilters">
+                    <select>
+                        <optgroup label="Sites">
+                            <option value="CMP">CMP</option>
+                            <option value="LYT">LYT</option>
+                        </optgroup>
+                    </select>
+                    <select>
+                        <optgroup label="Bâtiments">
+                            <option value="0014">0014</option>
+                            <option value="0155">0155</option>
+                        </optgroup>
+                    </select>
+                    <select>
+                        <optgroup label="Equipements">
+                            <option value="BAESEvac">BAES Evacuation</option>
+                            <option value="COMP">Compresseur</option>
+                            <option value="CUV">Cuve tampon</option>
+                            <option value="PMP1">Pompe circulation 1 chauffage atelier</option>
+                            <option value="PMP2">Pompe circulation 2 chauffage atelier</option>
+                       
+                        </optgroup>
+                    </select>
+                    <div class="manualSearchResults">
+                        <ul>
+                            <li>Resultat 1</li>
+                            <li>Resultat 2</li>
+                            <li>Resultat 3</li>
+                        </ul>
+                    </div>
+                </div>
+
+
                 
-                <button type="button" id="btn__updt" onclick="getQuery()" >Validation code article</button> 
+                
+                <button type="button" id="btn__updt">Validation code article</button> 
                 <!-- <div class="buttonArea" id="buttonArea">
                     <button type="button" id="btn__updt" onclick="tagazou()" >Validation code article</button> 
                 
@@ -29,60 +64,46 @@
         </div>
 
         <div class="itemTitle" id="itemTitle">
-            <h1><span id="code">code</span><br>
-                <span id="item">item</span>
+            <h1><span id="code">code item manquant</span><br>
+                <span id="item">libelle item manquant</span>
             </h1>
         </div>
     </div>
 
     <div class="container" id="container">
-        <!-- Basculer sur une génération de fiche dynamique via JS -->
         
        <div class="localization box">
            
            <table class="place">
-            <caption>
+            <caption class="captions">
                 Emplacement
               </caption>
-              <thead>
-                    <tr>
-                        <th>Bâtiment</th>
-                        <th>Niveau</th>
-                        <th>Pièce</th>
-                </tr>
+
+              <thead class="places-header">
+                    <!-- Contenu généré par JS -->
               </thead>
-              <tbody>
-                <tr>
-                    <td>0014</td>
-                    <td>Rdc</td>
-                    <td>023</td>
-                </tr>
+
+              <tbody class="place-body">
+                <!-- Contenu généré par JS -->
               </tbody>
-          
-          
-           </table>
+
+            </table>
           
        </div>
 
        <div class="specs box">
            
            <table class="specifications">
-               <caption>Spécifications</caption>
-               <thead>
-                    <tr>
-                        <th>Marque</th>
-                        <th>Modèle</th>
-                        <th>Numéro de série</th>
-                        <th>Date installation </th>
-                    </tr>
+               <caption class="captions">
+                   Spécifications
+                </caption>
+
+               <thead class="specs-header">
+                    <!-- Contenu généré par JS -->
                </thead>
-               <tbody>
-                    <tr>
-                        <td>URA</td>
-                        <td>110 000</td>
-                        <td>1234321</td>
-                        <td>04/2021</td>
-                    </tr>
+
+               <tbody class="specs-body">
+                    <!-- Contenu généré par JS -->
                </tbody>
                
            </table>
@@ -91,41 +112,13 @@
        <div class="maintenance box">
            
             <table class="operations">
-                <caption>Suivi des maintenances</caption>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Opération</th>
-                        <th>Sociéte</th>
-                        <th>Nom</th>
-                        
-                    </tr>
+                <caption class="captions">Suivi des maintenances</caption>
+                
+                <thead class="maints-header">
+                    <!-- Contenu généré par JS -->
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>17/04/2021</td>
-                        <td>Installation</td>
-                        <td>VEOLIA</td>
-                        <td>DOE</td>
-                    </tr>
-                    <tr>
-                        <td>17/04/2022</td>
-                        <td>Maintenance annuelle</td>
-                        <td>INEO</td>
-                        <td>AGL</td>
-                    </tr>
-                    <tr>
-                        <td>17/04/2023</td>
-                        <td>Maintenance annuelle</td>
-                        <td>INEO</td>
-                        <td>MLD</td>
-                    </tr>
-                    <tr>
-                        <td>17/05/2024</td>
-                        <td>Maintenance annuelle</td>
-                        <td>SID</td>
-                        <td>FCR</td>
-                    </tr>
+                <tbody class="maints-body">
+                    <!-- Contenu généré par JS -->
                 </tbody>
                 
             </table>

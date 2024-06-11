@@ -1,6 +1,12 @@
 *
 {
     box-sizing: border-box;
+    
+}
+
+:root
+{
+    --bg_coquelicot : #c60800;
     font-size: 1em;
 }
 
@@ -38,7 +44,7 @@ html, body
 {
     width: 100%;
     height: 100%;
-    border: 1px solid orangered;
+    border: 1px solid var(--bg_coquelicot);
     
 }
 /* -- B -- */
@@ -53,7 +59,7 @@ html, body
 {
     display: grid;
     position: relative;
-    background-color: brown;
+    background-color: var(--bg_coquelicot);
    
     height: 100%;
     margin: 0;

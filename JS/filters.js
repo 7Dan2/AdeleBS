@@ -3,12 +3,6 @@ getFiltersButton.addEventListener("click", myFunction)
 
 const getFilters = document.getElementById("filters");
 
-function toggleFiltersField()
-{
-    getFilters.classList.toggle("blabla")
-   
-}
-
 function myFunction() {
     var x = document.getElementById("filters");
     if (x.style.display === "none") {

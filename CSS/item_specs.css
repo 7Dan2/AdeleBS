@@ -43,6 +43,7 @@ button
     height: 44px;
     margin: 10px;
     box-shadow: 1px 6px 5px 2px rgba(27, 27, 27, 0.81);
+    letter-spacing: 1px;
     
 }
 
@@ -77,9 +78,10 @@ form > input
 
 
 /* -- H -- */
-h1
+h1, h3
 {
     text-align: center;
+    letter-spacing: 1px;
 }
 
 /* -- I -- */
@@ -100,8 +102,6 @@ div[class="itemSearch"]
 {
     display: grid;
     grid-template-columns: 1fr;
-    /* display: flex;
-    flex: 1; */
     justify-content: center;
 }
 

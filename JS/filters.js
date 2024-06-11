@@ -23,7 +23,7 @@ function myFunction()
     Le bouton de validation de code item
     n'est visible que lorsque les filtres sont cachés
     */
-    if(getFilter.style.display === 'none')
+    if(getFilters.style.display === 'none')
     {
         getBtnUpdt.style.display="block";
     }

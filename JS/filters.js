@@ -2,13 +2,34 @@ const getFiltersButton = document.getElementById("btn_searchFilters");
 getFiltersButton.addEventListener("click", myFunction)
 
 const getFilters = document.getElementById("filters");
+const getBtnUpdt = document.getElementById("btn__updt")
 
-function myFunction() {
-    var x = document.getElementById("filters");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
+function myFunction() 
+{
+    /*
+    On fait apparaitre / disparaitre les filtres sur appui du 
+    bouton "Recherche par filtres"
+    */
+    if (getFilters.style.display === "none") 
+    {
+        getFilters.style.display = "block";
+    } 
+    else 
+    {
+        getFilters.style.display = "none";
+    }
+
+    /*
+    Le bouton de validation de code item
+    n'est visible que lorsque les filtres sont cachés
+    */
+    if(getFilter.style.display === 'none')
+    {
+        getBtnUpdt.style.display="block";
+    }
+    else
+    {
+        getBtnUpdt.style.display="none";
     }
   } 
 

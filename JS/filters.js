@@ -47,7 +47,47 @@ let getSite = document.getElementById("site");
 let getBatiment = document.getElementById("batiment");
 let getEquipement = document.getElementById("equipement");
 
-getSite.addEventListener("change", getValue)
+getSite.addEventListener("change", getValue);
+
+
+// ### Les bases de données ###
+const siteBdd = 
+    { 
+        CMP: "CMP", 
+        LYT: "LYT", 
+        USA: "CIRFA 61 / Usine A",
+        CSA: "CIRFA 72", 
+        FDL: "Ferme de l'aumône"
+    }
+
+const batBdd =
+{
+    CMP:[0001, 0014, 0015]
+}
+// {
+//     LYT:[0029, 0030, 0031]
+// }
+
+// ### Les fonctions ###
+
+function displaySites(data)
+{
+    var selectEl = document.getElementById("siteOptG");
+
+
+    for(let key in data)
+    {
+        const option = document.createElement("OPTION");
+        option.value = key;
+        option.text = data[key];
+        selectEl.appendChild(option);
+
+        console.log(data) 
+    }
+    
+}
+displaySites(siteBdd)
+
 
 
 function getValue(aSiteValue)
@@ -57,7 +97,6 @@ function getValue(aSiteValue)
 
     let myP = document.createElement("p");
 
-    
     switch(aSiteValue)
     {
         case "CMP" :            
@@ -68,12 +107,12 @@ function getValue(aSiteValue)
             site = "Lyautey";
             break; 
              
-        case "COR" :
-            site = "CIRFA 72"
+        case "USA" :
+            site = "CIRFA 61 / Usine A"
             break;  
 
         case "CSA" :
-            site = "CIRFA 61"
+            site = "CIRFA 72"
             break;
 
         case "FDL" :
@@ -105,7 +144,7 @@ function recurse()
     }
 }
 
-// Voir document fragment pour créér les parties
+// Voir document fragment pour créér les éléments
 const df = new DocumentFragment();
 
 
@@ -274,75 +313,41 @@ const myBDD =
     }
 ]
 
-const siteBdd = 
-
-    { 
-        CMP: "CMP", 
-        LYT: "LYT", 
-        COR: "CIRFA 61",
-        CSA: "CIRFA 72", 
-        FDL: "Ferme de l'aumône"
-    }
-
-const batBdd =
-{
-    CMP:[0001, 0014, 0015]
-}
-
-
-function displaySites(data)
-{
-    const selectEl = document.getElementById("siteOptG");
-
-
-    for(let key in data)
-    {
-        const option = document.createElement("OPTION");
-        option.value = key;
-        option.text = data[key];
-        selectEl.appendChild(option);
-
-        console.log(data) 
-    }
-    
-}
 
 
 
-displaySites(siteBdd)
 
 
+// const aSelect = document.querySelector("#site");
 
-const aSelect = document.querySelector("#site");
-
-function loopThroughJSON(obj)
-{
-    for (let key in obj)
-    {
-        if (typeof obj[key] === 'object')
-        {
-            if (Array.isArray(obj[key])) 
-            {
-                // loop through array
-                for (let i = 0; i < obj[key].length; i++) 
-                {
-                loopThroughJSON(obj[key][i]);
-                }
-            } 
-            else 
-            {
-            // call function recursively for object
-            loopThroughJSON(obj[key]);
-            }
-        } 
-        else 
-        {
+// function loopThroughJSON(obj)
+// {
+//     for (let key in obj)
+//     {
+//         if (typeof obj[key] === 'object')
+//         {
+//             if (Array.isArray(obj[key])) 
+//             {
+//                 // loop through array
+//                 for (let i = 0; i < obj[key].length; i++) 
+//                 {
+//                 loopThroughJSON(obj[key][i]);
+//                 }
+//             } 
+//             else 
+//             {
+//             // call function recursively for object
+//             loopThroughJSON(obj[key]);
+//             }
+//         } 
+//         else 
+//         {
             
             
-            // do something with value
-            console.log(key + ': ' + obj[key] + typeof obj[key]);
-        }
-    }
-  }
+//             // do something with value
+//             console.log(key + ': ' + obj[key] + typeof obj[key]);
+//         }
+//     }
+//   }
 
 //   loopThroughJSON(myBDD)

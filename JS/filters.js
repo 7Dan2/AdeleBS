@@ -50,10 +50,44 @@ let getEquipement = document.getElementById("equipement");
 getSite.addEventListener("change", getValue)
 
 
-function getValue()
+function getValue(aSiteValue)
 {
-    console.log(getSite.value)
-    bdd.forEach(getSite.value)
+    aSiteValue = getSite.value;
+    console.log("Choix site :" + " " + aSiteValue)
+
+    let myP = document.createElement("p");
+
+    
+    switch(aSiteValue)
+    {
+        case "CMP" :            
+            site = "Caserne";
+            break;  
+
+        case "LYT" :
+            site = "Lyautey";
+            break; 
+             
+        case "COR" :
+            site = "CIRFA 72"
+            break;  
+
+        case "CSA" :
+            site = "CIRFA 61"
+            break;
+
+        case "FDL" :
+            site = "Ferme de l'aumône"
+            break;
+        
+        default :
+            site = "Pas de site sélectionné"
+    }
+    
+    let truc = document.getElementById("manualSearchResults");
+    truc.textContent = `Site choisi : ${site}`;
+    truc.appendChild(myP);
+    
 }
 
 
@@ -240,16 +274,27 @@ const myBDD =
     }
 ]
 
-otherBdd = 
-[
-    { CMP: "CMP", LYT:"LYT", CSAR:"CIRFA72", FDL:"Ferme" }
-]
+const siteBdd = 
 
+    { 
+        CMP: "CMP", 
+        LYT: "LYT", 
+        COR: "CIRFA 61",
+        CSA: "CIRFA 72", 
+        FDL: "Ferme de l'aumône"
+    }
+
+const batBdd =
+{
+    CMP:[0001, 0014, 0015]
+}
 
 
 function displaySites(data)
 {
-    const selectEl = document.getElementById("site");
+    const selectEl = document.getElementById("siteOptG");
+
+
     for(let key in data)
     {
         const option = document.createElement("OPTION");
@@ -257,12 +302,14 @@ function displaySites(data)
         option.text = data[key];
         selectEl.appendChild(option);
 
-        console.log(data)
+        console.log(data) 
     }
     
 }
 
-displaySites(otherBdd)
+
+
+displaySites(siteBdd)
 
 
 

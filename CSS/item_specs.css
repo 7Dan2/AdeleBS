@@ -7,7 +7,7 @@
 {
     font-size: 1em;
     font-family: Arial, Helvetica, sans-serif;
-    --bg_coquelicot : rgb(198, 27, 0);
+    --bg_coquelicot : rgba(198, 27, 0, 0.7);
     --bg_greenGrass: rgb(124, 152, 0);
 }
  /* -- B -- */
@@ -15,7 +15,7 @@ body
 {
     height: 100%;
     margin: 0;
-    background-color: var(--bg_coquelicot);
+    background: var(--bg_coquelicot) ;
     /* background-color: rgb(135, 135, 135); */
     
 }

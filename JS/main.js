@@ -4,7 +4,6 @@ getLaunchAppButton.addEventListener("click", goToLoginPage)
 const getSearchItemButton = document.getElementById("launchSearchItem");
 getSearchItemButton.addEventListener("click", goToSearchItemPage)
 
-
 function showAppName()
 {
     const getDiv = document.getElementById("appMultiArea")
@@ -19,7 +18,6 @@ function coucou()
     document.getElementById("appButtons").classList.add("choice")
     setTimeout(hideLogo, 4000)
     setTimeout(showChoice, 4100)
-    
 }
 
 function hideLogo()

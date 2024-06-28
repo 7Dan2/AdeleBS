@@ -82,7 +82,8 @@ form > input
 h1, h3
 {
     text-align: center;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    color: whitesmoke;
 }
 
 /* -- I -- */

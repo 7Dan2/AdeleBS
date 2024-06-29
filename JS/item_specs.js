@@ -37,6 +37,11 @@ window.addEventListener("load", (event) => {
     getUrlOnLoad()
   });
 
+  function coucou()
+  {
+      console.log("coucou")
+  }
+
 // On recherche la présence du query dans l'URL
 let getItemSearchValue = document.getElementById("manualItemSearchField");
 getItemSearchValue.addEventListener("change",appendSearchQuery );
@@ -73,7 +78,7 @@ function appendSearchQuery(aValue)
 {
     aValue = getItemSearchValue.value;
 
-    // location.replace("file:///Users/yanis/Documents/HTML:CSS:JS/AdeleBS/HTML/item_specs.html?searchItem=" + value);
+    // location.replace("file:///Users/yanis/Documents/HTML:CSS:JS/AdeleBS/HTML/item_specs.html?searchItem=" + aValue);
     // location.replace("https://7dan2.github.io/AdeleBS/HTML/item_specs.html?searchItem=" + value)
     location.replace("http://localhost:9000/HTML/item_specs.html?searchItem=" + aValue)
 }

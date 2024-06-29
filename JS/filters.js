@@ -61,9 +61,23 @@ const siteBdd =
     }
 
 const batBdd =
-{
-    CMP:[0001, 0014, 0015]
-}
+[
+    {
+        CMP:["0001", "0014", "0015"]
+    },
+    {
+        LYT:["0029", "0030", "0031"]
+    },
+    {
+        USA:["0001"]
+    },
+    {
+        CSA:["0001"]
+    },
+    {
+        FDL:["0004", "0005", "0006"]
+    }
+]
 // {
 //     LYT:[0029, 0030, 0031]
 // }
@@ -72,15 +86,17 @@ const batBdd =
 
 function displaySites(data)
 {
-    var selectEl = document.getElementById("siteOptG");
-
+    var selectSiteEl = document.getElementById("siteOptG");
+    var selectBatEl = document.getElementById("batOpt");
+    var selectEquipEl = document.getElementById("bequipOptG");
 
     for(let key in data)
     {
         const option = document.createElement("OPTION");
         option.value = key;
         option.text = data[key];
-        selectEl.appendChild(option);
+        
+        selectSiteEl.appendChild(option);
 
         console.log(data) 
     }

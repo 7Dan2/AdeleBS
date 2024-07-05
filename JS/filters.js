@@ -47,7 +47,8 @@ let getSite = document.getElementById("site");
 let getBatiment = document.getElementById("batiment");
 let getEquipement = document.getElementById("equipement");
 
-getSite.addEventListener("change", getValue);
+getSite.addEventListener("change", displayBatiments);
+
 
 
 // ### Les bases de données ###
@@ -60,36 +61,41 @@ const siteBdd =
         FDL: "Ferme de l'aumône"
     }
 
-const batBdd =
+const buildings =
 [
     {
-        CMP:["0001", "0014", "0015"]
+        site:"CMP",
+        batiments:
+        [
+            "0001", "0014", "0015"
+            // {"0001":"pcp"},
+            // {"0014":"SID"},
+            // {"0015":"Simul"}
+        ]
     },
     {
-        LYT:["0029", "0030", "0031"]
+        site:"LYT",
+        batiments:
+        [
+            "0029", "0030", "0031"
+        ]
     },
     {
-        USA:["0001"]
-    },
-    {
-        CSA:["0001"]
-    },
-    {
-        FDL:["0004", "0005", "0006"]
+        site:"USA",
+        batiments:
+        [
+            "0001"
+        ]
     }
 ]
-// {
-//     LYT:[0029, 0030, 0031]
-// }
+
 
 // ### Les fonctions ###
 
 function displaySites(data)
 {
     var selectSiteEl = document.getElementById("siteOptG");
-    var selectBatEl = document.getElementById("batOpt");
-    var selectEquipEl = document.getElementById("bequipOptG");
-
+    
     for(let key in data)
     {
         const option = document.createElement("OPTION");
@@ -102,7 +108,70 @@ function displaySites(data)
     }
     
 }
-displaySites(siteBdd)
+displaySites(siteBdd);
+
+
+
+
+function displayBatiments(aSiteValue)
+{
+    aSiteValue = event.target.value;
+    console.log(`Valeur du paramètre : ${aSiteValue}`)
+    // aSiteValue = getSite.value;
+    
+
+    buildings.forEach((element) => {
+        console.log("Bâtiments :" + " " + element.batiments);
+        var option = document.createElement("OPTION");
+        option.value = element.site;
+        option.textContent = element.batiments;
+        getBatiment.appendChild(option);
+    })
+
+    // aSiteValue.forEach(function(value)
+    // {
+    //     var option = document.createElement("OPTION");
+    //     option.value = aSiteValue;
+    //     option.textContent = buildings[aSiteValue].batiments;
+    //     getBatiment.appendChild(option);
+    // });
+    
+     
+    // for(var i = 0; i < options.length; i++) 
+    // {
+    //     var opt = options[i];
+    
+    //     var el = document.createElement("option");
+    //     el.text = opt;
+    //     el.value = opt;
+    
+    //     select.appendChild(el);
+    // }​
+}
+    // buildings.forEach((element) => {
+    // console.log(element.site + " " + buildings.length); // 100, 200, 300
+    
+    // console.log(element.batiments);
+    // console.log(index); // 0, 1, 2
+    // console.log(array); // same myArray object 3 times
+    // var selectBatEl = document.getElementById("batOptG");
+    
+    
+    // });
+
+    
+
+    // for(let key in data)
+    // {
+    //     const option = document.createElement("OPTION");
+    //     option.value = key;
+    //     option.text = data[key];
+        
+    //     selectBatEl.appendChild(option);
+
+    //     console.log(data) 
+    // }
+    // console.log("Choix de la bite :" + " " + aSiteValue)
 
 
 

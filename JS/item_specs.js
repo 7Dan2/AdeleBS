@@ -79,8 +79,8 @@ function appendSearchQuery(aValue)
     aValue = getItemSearchValue.value;
 
     // location.replace("file:///Users/yanis/Documents/HTML:CSS:JS/AdeleBS/HTML/item_specs.html?searchItem=" + aValue);
-    // location.replace("https://7dan2.github.io/AdeleBS/HTML/item_specs.html?searchItem=" + value)
-    location.replace("http://localhost:9000/HTML/item_specs.html?searchItem=" + aValue)
+    location.replace("https://7dan2.github.io/AdeleBS/HTML/item_specs.html?searchItem=" + value)
+    // location.replace("http://localhost:9000/HTML/item_specs.html?searchItem=" + aValue)
 }
 // Récupération du code article :
 // Cas 1 => dans le "searchItem" de l'URL (par scan du QR code)
@@ -160,7 +160,7 @@ function tagazou(anItemCode)
 function showItem(aValue)
 {
     document.getElementById("container").style.visibility = "visible";
-        document.getElementById("itemTitle").style.display="block";
+    document.getElementById("itemTitle").style.display="block";
 
     aValue = sessionStorage.getItem("code_item");
     console.log("valeur de aValue dans showItem: " + aValue)

@@ -6,7 +6,7 @@
 
 :root
 {
-    --bg_coquelicot : #c60800;
+    --bg_coquelicot : rgba(180, 27, 0, 0.7);
     font-size: 1em;
 }
 
@@ -29,9 +29,6 @@ html, body
     
     margin: auto;
     margin-top: 6px;
-    
-    
-   
 }
 
 .app_button > button:hover

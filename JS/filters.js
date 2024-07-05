@@ -47,72 +47,111 @@ let getSite = document.getElementById("site");
 let getBatiment = document.getElementById("batiment");
 let getEquipement = document.getElementById("equipement");
 
-getSite.addEventListener("change", displayBatiments);
+// getSite.addEventListener("change", displayBatiments);
 
 
 
 // ### Les bases de données ###
-const siteBdd = 
-    { 
-        CMP: "CMP", 
-        LYT: "LYT", 
-        USA: "CIRFA 61 / Usine A",
-        CSA: "CIRFA 72", 
-        FDL: "Ferme de l'aumône"
-    }
+// const siteBdd = 
+//     { 
+//         CMP: "CMP", 
+//         LYT: "LYT", 
+//         USA: "CIRFA 61 / Usine A",
+//         CSA: "CIRFA 72", 
+//         FDL: "Ferme de l'aumône"
+//     }
 
 const buildings =
-[
-    {
-        site:"CMP",
-        batiments:
-        [
-            "0001", "0014", "0015"
-            // {"0001":"pcp"},
-            // {"0014":"SID"},
-            // {"0015":"Simul"}
-        ]
-    },
-    {
-        site:"LYT",
-        batiments:
-        [
-            "0029", "0030", "0031"
-        ]
-    },
-    {
-        site:"USA",
-        batiments:
-        [
-            "0001"
-        ]
-    }
-]
+{
+    myObject:
+    [
+        {
+            site:"CMP",
+            batiments:
+            [
+                "0001", "0014", "0015"
+                
+            ]
+        },
+        {
+            site:"LYT",
+            batiments:
+            [
+                "0029", "0030", "0031"
+            ]
+        },
+        {
+            site:"USA",
+            batiments:
+            [
+                "0002"
+            ]
+        },
+        {
+            site:"CSA",
+            batiments:
+            [
+                "0003"
+            ]
+        },
+        {
+            site:"FDL",
+            batiments:
+            [
+                "0005", "0006"
+            ]
+        }
+    ]
+}
 
 
+//  
 // ### Les fonctions ###
 
+// Cell-ci affiche bien les proprietés dans chaque champ
 function displaySites(data)
 {
     var selectSiteEl = document.getElementById("siteOptG");
+    var selectBat = document.getElementById("batOptG");
     
-    for(let key in data)
+    for (let i in buildings.myObject)
     {
         const option = document.createElement("OPTION");
-        option.value = key;
-        option.text = data[key];
-        
+        option.value = buildings.myObject[i].site;
+        option.textContent = buildings.myObject[i].site;
         selectSiteEl.appendChild(option);
 
-        console.log(data) 
+        for (let j in buildings.myObject[i].batiments) 
+        {
+            const options = document.createElement("OPTION");
+            options.value = buildings.myObject[i].batiments[j];
+            options.textContent = buildings.myObject[i].batiments[j];
+            selectBat.appendChild(options);
+        }
+            
     }
+          
+
+
+    // for(let key in data)
+    // {
+    //     const option = document.createElement("OPTION");
+    //     option.value = key;
+    //     option.text = data[key];
+        
+    //     selectSiteEl.appendChild(option);
+
+    //     console.log("sites :" + data) 
+    // }
+
+
     
 }
-displaySites(siteBdd);
+displaySites(buildings);
 
 
 
-
+/*
 function displayBatiments(aSiteValue)
 {
     aSiteValue = event.target.value;
@@ -147,7 +186,7 @@ function displayBatiments(aSiteValue)
     
     //     select.appendChild(el);
     // }​
-}
+}*/
     // buildings.forEach((element) => {
     // console.log(element.site + " " + buildings.length); // 100, 200, 300
     

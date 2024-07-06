@@ -38,7 +38,7 @@ button
 {
     padding: 3px 12px;
     border: 3px solid black;
-    border-radius: 3px;
+    border-radius: 9px;
     font-size: 1rem;
     width: auto;
     height: 44px;
@@ -75,7 +75,7 @@ form > input
     height: 2rem;
     /* height: 44px; */
     margin: 10px;
-    border-radius: 6px;
+    border-radius: 9px;
     font-size: 1.1rem;
 }
 
@@ -174,8 +174,16 @@ input[name="manualItemSearchField"]
 
 input:valid
 {
-    border: 2px solid var(--bg_greenGrass)
+    background: var(--bg_greenGrass);
+    color: white;
+    text-align: center;
 
+}
+
+input:invalid
+{
+    background: red;
+    color: white
 }
 
 /* -- L -- */

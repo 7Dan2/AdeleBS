@@ -47,7 +47,7 @@ let getSite = document.getElementById("site");
 let getBatiment = document.getElementById("batiment");
 let getEquipement = document.getElementById("equipement");
 
-// getSite.addEventListener("change", displayBatiments);
+getSite.addEventListener("change", displayBatiments);
 
 
 

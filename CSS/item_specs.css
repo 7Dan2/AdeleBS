@@ -11,13 +11,14 @@
     --bg_greenGrass: rgb(126, 153, 0);
     --butterflyTree: rgb(81, 0, 72);
     --darkGreen: rgb(0, 72, 0);
+    --aKindOfBlue: rgb(108, 144, 135);
 }
  /* -- B -- */
 body
 {
     height: 100%;
     margin: 0;
-    background: var(--bg_coquelicot); 
+    background: var(--aKindOfBlue); 
 }
 
 .box
@@ -189,8 +190,8 @@ li
     background: wheat;
     padding: 6px;
     /* border: transparent; */
-    border-radius: 3px;
-    border-left: 6px solid rgb(255, 153, 0);
+    border-radius: 6px;
+    border-left: 9px solid rgb(255, 153, 0);
     list-style: none;
     word-spacing: 3px;
     word-break: break-word;
@@ -219,6 +220,7 @@ div[class="searchEngine"]
     margin-top: 20px;
     margin-right: 9px;
     margin-left: 9px;
+    padding: 18px
 }
 /*
 div[class="searchEngineList"]

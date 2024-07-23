@@ -178,11 +178,11 @@ input:default
     text-align: center;
 } */
 
-input:invalid
+/* input:invalid
 {
     background: red;
     color: white
-}
+} */
 
 /* -- L -- */
 li
@@ -196,7 +196,7 @@ li
     list-style: none;
     word-spacing: 3px;
     word-break: break-word;
-    box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.720);
+    /* box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.720); */
 }
 
 li::after
@@ -209,7 +209,7 @@ li::after
     height: 30px;
     background: black;
     z-index: -1;
-    box-shadow: 0px 2px 6px 9px rgba(9, 9, 9, 0.7);
+    box-shadow: 0px 2px 6px 9px rgba(9, 9, 9, 0.9);
     transform: rotate(-1deg);
 }
 

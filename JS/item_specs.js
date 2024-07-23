@@ -131,7 +131,7 @@ function getQuery()
 //     console.log(getEntryValue)
 // }
 
-// Moteur de recherche
+// Moteur de recherche avec base de données test
 const documents = [
     {id: 1, content: "R014029300000 CMP bâtiment 0014 sous-station"},
     {id: 2, content: "R014000800000 CMP bâtiment 0014 éclairage de sécurité"},
@@ -139,45 +139,52 @@ const documents = [
     {id: 4, content: "B030102381000 LYT bâtiment 0030 TC BAES Etage 1"},
     {id: 5, content: "B030203481000 LYT bâtiment 0030 TC BAES Etage 2"},
     {id: 6, content: "B031035424001 LYT bâtiment 0031 Chaudière 1"},
-    {id: 7, content: "R014000400000 CMP bâtiment 0014 CTA"}
+    {id: 7, content: "R014000400000 CMP bâtiment 0014 ensemble CTA"},
+    {id: 8, content: "R014029310001 CMP bâtiment 0014 sous-station circulateur 1 radiateurs"},
+    {id: 9, content: "R014029310002 CMP bâtiment 0014 sous-station circulateur 2 radiateurs"},
+    {id: 10, content: "R014029310003 CMP bâtiment 0014 sous-station circulateur 1 aérotherme"},
+    {id: 10, content: "R014029310004 CMP bâtiment 0014 sous-station circulateur 2 aérotherme"}
 ]
 
 function searchEngine(query)
 {
-    if(!query)
+    if(query === "")
     {
-        alert("Entrez un truc")
+        const resultsElement = document.getElementById('results').innerHTML = "";
 
     }
-    else
+    else if(query != "")
     {
-        // const query = document.getElementById('searchBox').value.toLowerCase();
         query = getItemSearchValue.value.toLowerCase();
         const results = search(query);
-        console.log(`Recherche : ${query}`)
+        // console.log(`Recherche : ${query}`)
         displayResults(results);
-        console.log(`Resultats : ${results}`)
+        // console.log(`Resultats : ${results}`)
     }
     
 }
 
-function search(query) {
+function search(query)
+{
     return documents.filter(doc => doc.content.toLowerCase().includes(query));
 }
 
-function displayResults(results) {
+function displayResults(results) 
+{
     const resultsElement = document.getElementById('results');
     resultsElement.innerHTML = '';
     results.forEach(result => {
         const unsortedList = document.createElement('ul');
         const listItem = document.createElement('li');
         listItem.textContent = result.content;
+        listItem.className = "searched";
         unsortedList.appendChild(listItem)
         resultsElement.appendChild(unsortedList);
     });
 }
 
 // Fin moteur de recherche
+
 
 function tagazou(anItemCode)
 {

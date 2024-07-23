@@ -194,6 +194,7 @@ li
     list-style: none;
     word-spacing: 3px;
     word-break: break-word;
+    box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.720);
 }
 
 li:hover
@@ -214,6 +215,8 @@ div[class="searchEngine"]
 {
     display: grid;
     grid-template-columns: 1fr;
+    gap: 5px;
+    margin-top: 20px;
 }
 /*
 div[class="searchEngineList"]

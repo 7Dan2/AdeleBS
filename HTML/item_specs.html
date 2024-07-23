@@ -20,7 +20,7 @@
 
             <form action="">
                 <!-- <label for="manualCodeArticleField">Entrez un code article</label> -->
-                <input type="search" id="manualItemSearchField" name="manualItemSearchField" pattern="[A-Z]{1}[0-9]{12}" maxlength="13" placeholder="Recherche par code item ..." autofocus>
+                <input type="search" id="manualItemSearchField" name="manualItemSearchField" pattern="[A-Z]{1}[0-9]{12}" maxlength="13" placeholder="Recherche ..." autofocus>
                 
                 <button type="button" id="btn_searchFilters" aria-pressed="false">Recherche par filtres</button>
                   
@@ -69,6 +69,11 @@
                 <span id="item">libelle item manquant</span>
             </h1>
         </div>
+    </div>
+
+    <div class="searchEngine" id="results">
+        
+        <!-- <ul class="searchEngineList" id="results"></ul> -->
     </div>
 
     <div class="container" id="container">

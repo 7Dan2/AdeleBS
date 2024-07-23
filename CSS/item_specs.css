@@ -67,6 +67,7 @@ caption
     visibility: hidden;
 }
 
+
 /* -- F -- */
 
 form > input
@@ -153,25 +154,22 @@ div[class="searchFiltersArea"] > select
     font-size: 1rem;
 }
 
-li
-{
-    padding: 3px;
-    list-style: none;
-}
-
-li:hover
-{
-    background: orange;
-    display: block;
-}
-
 input[name="manualItemSearchField"]
 {
     padding: 0 10px;
-    height: 44px;
+    height: 50px;
     box-shadow: 1px 6px 5px 2px rgba(0, 0, 0, 0.5);
 }
 
+input:focus
+{
+    background-color: white;
+}
+
+input:default
+{
+    background-color: white;
+}
 input:valid
 {
     background: var(--bg_greenGrass);
@@ -187,7 +185,22 @@ input:invalid
 }
 
 /* -- L -- */
+li
+{
+    padding: 6px;
+    /* border: transparent; */
+    border-radius: 3px;
+    border-left: 3px solid whitesmoke;
+    list-style: none;
+    word-spacing: 3px;
+    word-break: break-word;
+}
 
+li:hover
+{
+    background: rgb(253, 207, 117);
+    color: rgb(81, 81, 81);
+}
 /* -- P -- */
 .place
 {
@@ -197,6 +210,20 @@ input:invalid
 
 
 /* -- S -- */
+div[class="searchEngine"]
+{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+}
+
+div[class="searchEngineList"]
+{
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+}
+
 .specifications, .operations
 {
     table-layout: fixed;
@@ -234,7 +261,11 @@ thead
 
 
 /* -- U -- */
-
+ul
+{
+    margin: 3px;
+    padding: 0; 
+}
 /* @media screen and (max-width: 600px) 
 {
     .box {

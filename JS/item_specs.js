@@ -44,7 +44,10 @@ window.addEventListener("load", (event) => {
 
 // On recherche la présence du query dans l'URL
 let getItemSearchValue = document.getElementById("manualItemSearchField");
-getItemSearchValue.addEventListener("change",appendSearchQuery );
+// getItemSearchValue.addEventListener("change",appendSearchQuery );
+
+// Sert également pour le moteur de recherche
+getItemSearchValue.addEventListener("input", searchEngine);
 
 function getUrlOnLoad()
 {
@@ -128,6 +131,52 @@ function getQuery()
 //     console.log(getEntryValue)
 // }
 
+// Moteur de recherche
+const documents = [
+    {id: 1, content: "R014029300000 CMP bâtiment 0014 sous-station"},
+    {id: 2, content: "R014005800000 CMP bâtiment 0014 éclairage de sécurité"},
+    {id: 3, content: "B030000181000 LYT bâtiment 0030 TC BAES RDC"},
+    {id: 3, content: "B030102381000 LYT bâtiment 0030 TC BAES Etage 1"},
+    {id: 3, content: "B030203481000 LYT bâtiment 0030 TC BAES Etage 2"},
+    {id: 4, content: "B031035424001 LYT bâtiment 0031 Chaudière 1"}
+]
+
+function searchEngine(query)
+{
+    if(!query)
+    {
+        alert("Entrez un truc")
+
+    }
+    else
+    {
+        // const query = document.getElementById('searchBox').value.toLowerCase();
+        query = getItemSearchValue.value.toLowerCase();
+        const results = search(query);
+        console.log(`Recherche : ${query}`)
+        displayResults(results);
+        console.log(`Resultats : ${results}`)
+    }
+    
+}
+
+function search(query) {
+    return documents.filter(doc => doc.content.toLowerCase().includes(query));
+}
+
+function displayResults(results) {
+    const resultsElement = document.getElementById('results');
+    resultsElement.innerHTML = '';
+    results.forEach(result => {
+        const unsortedList = document.createElement('ul');
+        const listItem = document.createElement('li');
+        listItem.textContent = result.content;
+        unsortedList.appendChild(listItem)
+        resultsElement.appendChild(unsortedList);
+    });
+}
+
+// Fin moteur de recherche
 
 function tagazou(anItemCode)
 {

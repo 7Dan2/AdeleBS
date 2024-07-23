@@ -187,7 +187,8 @@ input:invalid
 /* -- L -- */
 li
 {
-    background: wheat;
+    position: relative;
+    background: lightgray;
     padding: 6px;
     /* border: transparent; */
     border-radius: 6px;
@@ -198,9 +199,23 @@ li
     box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.720);
 }
 
+li::after
+{
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: 4%;
+    width: 72%;
+    height: 30px;
+    background: black;
+    z-index: -1;
+    box-shadow: 0px 2px 6px 9px rgba(9, 9, 9, 0.7);
+    transform: rotate(-1deg);
+}
+
 li:hover
 {
-    background: rgb(253, 207, 117);
+    background:beige;
     color: rgb(43, 43, 43);
 }
 /* -- P -- */

@@ -217,6 +217,8 @@ div[class="searchEngine"]
     grid-template-columns: 1fr;
     gap: 5px;
     margin-top: 20px;
+    margin-right: 9px;
+    margin-left: 9px;
 }
 /*
 div[class="searchEngineList"]
@@ -267,8 +269,8 @@ ul
 {
     margin-top: 1px;
     margin-bottom: 6px;
-    margin-right: 9px;
-    margin-left: 9px;
+    margin-right: 6px;
+    margin-left: 6px;
     padding: 0; 
 }
 /* @media screen and (max-width: 600px) 

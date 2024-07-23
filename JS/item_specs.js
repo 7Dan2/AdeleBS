@@ -134,7 +134,7 @@ function getQuery()
 // Moteur de recherche
 const documents = [
     {id: 1, content: "R014029300000 CMP bâtiment 0014 sous-station"},
-    {id: 2, content: "R014005800000 CMP bâtiment 0014 éclairage de sécurité"},
+    {id: 2, content: "R014000800000 CMP bâtiment 0014 éclairage de sécurité"},
     {id: 3, content: "B030000181000 LYT bâtiment 0030 TC BAES RDC"},
     {id: 3, content: "B030102381000 LYT bâtiment 0030 TC BAES Etage 1"},
     {id: 3, content: "B030203481000 LYT bâtiment 0030 TC BAES Etage 2"},

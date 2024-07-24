@@ -143,7 +143,7 @@ const documents = [
     {id: 8, content: "R014029310001 CMP bâtiment 0014 sous-station circulateur 1 radiateurs"},
     {id: 9, content: "R014029310002 CMP bâtiment 0014 sous-station circulateur 2 radiateurs"},
     {id: 10, content: "R014029310003 CMP bâtiment 0014 sous-station circulateur 1 aérotherme"},
-    {id: 10, content: "R014029310004 CMP bâtiment 0014 sous-station circulateur 2 aérotherme"}
+    {id: 11, content: "R014029310004 CMP bâtiment 0014 sous-station circulateur 2 aérotherme"}
 ]
 
 function searchEngine(query)
@@ -157,7 +157,7 @@ function searchEngine(query)
     {
         query = getItemSearchValue.value.toLowerCase();
         const results = search(query);
-        // console.log(`Recherche : ${query}`)
+        // console.log(`Recherche : ${query}`);
         displayResults(results);
         // console.log(`Resultats : ${results}`)
     }

@@ -202,7 +202,7 @@ li::after
 {
     content: "";
     position: absolute;
-    top: 27px;
+    /* top: 27px; */
     left: 6px;
     width: 200px;
     height: 16px;

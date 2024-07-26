@@ -9,12 +9,12 @@
         "num_serie":"12335",
         "annee_mep":"2021",
         "localisation":
-    {
-        "site":"CMP",
-        "batiment":"0014",
-        "etage":"0",
-        "piece":"005"
-    },
+        {
+            "site":"CMP",
+            "batiment":"0014",
+            "etage":"0",
+            "piece":"005"
+        },
         "maintenances":
         {
             "date":"05/03/2023",

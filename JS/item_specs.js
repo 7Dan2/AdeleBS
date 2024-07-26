@@ -133,17 +133,22 @@ function getQuery()
 
 // Moteur de recherche avec base de données test
 const documents = [
-    {id: 1, content: "R014029300000 CMP bâtiment 0014 sous-station"},
-    {id: 2, content: "R014000800000 CMP bâtiment 0014 éclairage de sécurité"},
-    {id: 3, content: "B030000181000 LYT bâtiment 0030 TC BAES RDC"},
-    {id: 4, content: "B030102381000 LYT bâtiment 0030 TC BAES Etage 1"},
-    {id: 5, content: "B030203481000 LYT bâtiment 0030 TC BAES Etage 2"},
-    {id: 6, content: "B031035424001 LYT bâtiment 0031 Chaudière 1"},
-    {id: 7, content: "R014000400000 CMP bâtiment 0014 ensemble CTA"},
-    {id: 8, content: "R014029310001 CMP bâtiment 0014 sous-station circulateur 1 radiateurs"},
-    {id: 9, content: "R014029310002 CMP bâtiment 0014 sous-station circulateur 2 radiateurs"},
-    {id: 10, content: "R014029310003 CMP bâtiment 0014 sous-station circulateur 1 aérotherme"},
-    {id: 11, content: "R014029310004 CMP bâtiment 0014 sous-station circulateur 2 aérotherme"}
+    {id: "R014029300000", content: "CMP bâtiment 0014 sous-station"},
+    {id: "R014000800000", content: "CMP bâtiment 0014 éclairage de sécurité"},
+    {id: "B030000181000", content: "LYT bâtiment 0030 TC BAES RDC"},
+    {id: "B030102381000", content: "LYT bâtiment 0030 TC BAES Etage 1"},
+    {id: "B030203481000", content: "LYT bâtiment 0030 TC BAES Etage 2"},
+    {id: "B031035340001", content: "LYT bâtiment 0031 chaudière 1"},
+    {id: "R014000400000", content: "CMP bâtiment 0014 ensemble CTA"},
+    {id: "R014029310001", content: "CMP bâtiment 0014 sous-station circulateur 1 radiateurs"},
+    {id: "R014029310002", content: "CMP bâtiment 0014 sous-station circulateur 2 radiateurs"},
+    {id: "R014029310003", content: "CMP bâtiment 0014 sous-station circulateur 1 aérotherme"},
+    {id: "R014029310004", content: "CMP bâtiment 0014 sous-station circulateur 2 aérotherme"},
+    {id: "R068004300000", content: "CMP bâtiment 0068 chaufferie"},
+    {id: "R068004340001", content: "CMP bâtiment 0068 chaudière 1"},
+    {id: "R068004340002", content: "CMP bâtiment 0068 chaudière 2"},
+    {id: "R068004340003", content: "CMP bâtiment 0068 chaudière 3"},
+    {id: "B031035300000", content: "LYT bâtiment 0031 chaufferie"}
 ]
 
 function searchEngine(query)
@@ -176,7 +181,7 @@ function displayResults(results)
     results.forEach(result => {
         const unsortedList = document.createElement('ul');
         const listItem = document.createElement('li');
-        listItem.textContent = result.content;
+        listItem.innerHTML = "<strong>" + result.id + "</strong>" + "</BR>" + result.content;
         listItem.className = "searched";
         unsortedList.appendChild(listItem)
         resultsElement.appendChild(unsortedList);

@@ -133,22 +133,30 @@ function getQuery()
 
 // Moteur de recherche avec base de données test
 const documents = [
-    {id: "R014029300000", content: "CMP bâtiment 0014 sous-station"},
-    {id: "R014000800000", content: "CMP bâtiment 0014 éclairage de sécurité"},
-    {id: "B030000181000", content: "LYT bâtiment 0030 TC BAES RDC"},
-    {id: "B030102381000", content: "LYT bâtiment 0030 TC BAES Etage 1"},
-    {id: "B030203481000", content: "LYT bâtiment 0030 TC BAES Etage 2"},
-    {id: "B031035340001", content: "LYT bâtiment 0031 chaudière 1"},
-    {id: "R014000400000", content: "CMP bâtiment 0014 ensemble CTA"},
-    {id: "R014029310001", content: "CMP bâtiment 0014 sous-station circulateur 1 radiateurs"},
-    {id: "R014029310002", content: "CMP bâtiment 0014 sous-station circulateur 2 radiateurs"},
-    {id: "R014029310003", content: "CMP bâtiment 0014 sous-station circulateur 1 aérotherme"},
-    {id: "R014029310004", content: "CMP bâtiment 0014 sous-station circulateur 2 aérotherme"},
-    {id: "R068004300000", content: "CMP bâtiment 0068 chaufferie"},
-    {id: "R068004340001", content: "CMP bâtiment 0068 chaudière 1"},
-    {id: "R068004340002", content: "CMP bâtiment 0068 chaudière 2"},
-    {id: "R068004340003", content: "CMP bâtiment 0068 chaudière 3"},
-    {id: "B031035300000", content: "LYT bâtiment 0031 chaufferie"}
+    {id: "R014029300000", site:"CMP", content: "Bâtiment 0014 sous-station"},
+    {id: "R091N00130000", site:"CMP", content: "Bâtiment 0091 sous-station"},
+    {id: "R091N00139B01", site:"CMP", content: "Bâtiment 0091 production ECS 60°"},
+    {id: "R091N00139B02", site:"CMP", content: "Bâtiment 0091 production 1 ECS 45°"},
+    {id: "R091N00139B03", site:"CMP", content: "Bâtiment 0091 production 2 ECS 45°"},
+    {id: "R014000800000", site:"CMP", content: "Bâtiment 0014 éclairage de sécurité"},
+    {id: "B030000181000", site:"LYT", content: "Bâtiment 0030 TC BAES RDC"},
+    {id: "B030102381000", site:"LYT", content: "Bâtiment 0030 TC BAES Etage 1"},
+    {id: "B030203481000", site:"LYT", content: "Bâtiment 0030 TC BAES Etage 2"},
+    {id: "R014000400000", site:"CMP", content: "Bâtiment 0014 ensemble CTA"},
+    {id: "R014029310001", site:"CMP", content: "Bâtiment 0014 sous-station circulateur 1 radiateurs"},
+    {id: "R014029310002", site:"CMP", content: "Bâtiment 0014 sous-station circulateur 2 radiateurs"},
+    {id: "R014029310003", site:"CMP", content: "Bâtiment 0014 sous-station circulateur 1 aérotherme"},
+    {id: "R014029310004", site:"CMP", content: "Bâtiment 0014 sous-station circulateur 2 aérotherme"},
+    {id: "R068004300000", site:"CMP", content: "Bâtiment 0068 chaufferie"},
+    {id: "R068004340001", site:"CMP", content: "Bâtiment 0068 chaudière 1"},
+    {id: "R068004340002", site:"CMP", content: "Bâtiment 0068 chaudière 2"},
+    {id: "R068004340003", site:"CMP", content: "Bâtiment 0068 chaudière 3"},
+    {id: "B031035300000", site:"LYT", content: "Bâtiment 0031 chaufferie"},
+    {id: "B031035340001", site:"LYT", content: "Bâtiment 0031 chaudière 1"},
+    {id: "J001002660001", site:"CIR", content: "Bâtiment 0001 rideau métallique sortie"},
+    {id: "C005000283001", site:"FDL", content: "Bâtiment 0005 BAES évacuation"},
+    {id: "D001000283001", site:"USA", content: "Bâtiment 0001 BAES évacuation"},
+    {id: "D001000263001", site:"USA", content: "Portail principal"}
 ]
 
 function searchEngine(query)
@@ -171,7 +179,7 @@ function searchEngine(query)
 
 function search(query)
 {
-    return documents.filter(doc => doc.content.toLowerCase().includes(query));
+    return documents.filter(doc => doc.id.toLowerCase().includes(query));
 }
 
 function displayResults(results) 
@@ -181,8 +189,41 @@ function displayResults(results)
     results.forEach(result => {
         const unsortedList = document.createElement('ul');
         const listItem = document.createElement('li');
-        listItem.innerHTML = "<strong>" + result.id + "</strong>" + "</BR>" + result.content;
-        listItem.className = "searched";
+
+        listItem.innerHTML = "<strong>" + result.id + "</strong>" + " " + result.site + "</BR>" + result.content;
+            
+        
+        switch(result.site)
+        {
+            case("CMP"):
+            // listItem.innerHTML = "<strong>" + result.id + "</strong>" + result.site + "</BR>" + result.content;
+            listItem.classList.add("CMP");
+            break;
+
+            case("LYT"):
+            // listItem.innerHTML = "<strong>" + result.id + "</strong>" + "</BR>" + result.content;
+            listItem.className = "LYT";
+            break;
+
+            case("CIR"):
+            // listItem.innerHTML = "<strong>" + result.id + "</strong>" + "</BR>" + result.content;
+            listItem.className = "CIR"
+            break;
+
+            case("FDL"):
+            // listItem.innerHTML = "<strong>" + result.id + "</strong>" + "</BR>" + result.content;
+            listItem.className = "FDL";
+            break;
+
+            case("USA"):
+            // listItem.innerHTML = "<strong>" + result.id + "</strong>" + "</BR>" + result.content;
+            listItem.className = "USA";
+            break;
+
+            default:
+                listItem.className = "noSite";
+        }
+       
         unsortedList.appendChild(listItem)
         resultsElement.appendChild(unsortedList);
     });
